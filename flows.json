@@ -13,8 +13,8 @@
         "z": "4c5d465447dabe08",
         "name": "",
         "props": [],
-        "x": 810,
-        "y": 580,
+        "x": 1270,
+        "y": 20,
         "wires": [
             []
         ]
@@ -69,8 +69,8 @@
         "split": false,
         "rowsPerMsg": 1,
         "outputs": 1,
-        "x": 1170,
-        "y": 340,
+        "x": 1070,
+        "y": 140,
         "wires": [
             []
         ]
@@ -86,7 +86,9 @@
         "x": 150,
         "y": 40,
         "wires": [
-            []
+            [
+                "5c1148c0892e72f1"
+            ]
         ]
     },
     {
@@ -116,10 +118,12 @@
                 "to": "Running"
             }
         ],
-        "x": 510,
+        "x": 430,
         "y": 40,
         "wires": [
-            []
+            [
+                "89786cb06dbff3f7"
+            ]
         ]
     },
     {
@@ -180,35 +184,6 @@
         ]
     },
     {
-        "id": "61835cf889eef3e6",
-        "type": "inject",
-        "z": "4c5d465447dabe08",
-        "name": "Start",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "Start",
-        "payload": "",
-        "payloadType": "date",
-        "x": 350,
-        "y": 40,
-        "wires": [
-            [
-                "5c1148c0892e72f1"
-            ]
-        ]
-    },
-    {
         "id": "f6455ed1747061a4",
         "type": "rbe",
         "z": "4c5d465447dabe08",
@@ -227,31 +202,84 @@
         ]
     },
     {
-        "id": "378034429b327d0a",
-        "type": "inject",
+        "id": "f70de6403a4e853f",
+        "type": "twilio out",
         "z": "4c5d465447dabe08",
-        "name": "Stop",
-        "props": [
+        "twilioType": "sms",
+        "url": "",
+        "number": "",
+        "name": "",
+        "x": 1050,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "76d3e9ad10eb4357",
+        "type": "template",
+        "z": "4c5d465447dabe08",
+        "name": "Stop Notification Template",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "This is the payload: {{payload}} !",
+        "output": "str",
+        "x": 830,
+        "y": 200,
+        "wires": [
+            [
+                "f70de6403a4e853f"
+            ]
+        ]
+    },
+    {
+        "id": "89786cb06dbff3f7",
+        "type": "switch",
+        "z": "4c5d465447dabe08",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
             {
-                "p": "payload"
+                "t": "eq",
+                "v": "Start",
+                "vt": "str"
             },
             {
-                "p": "topic",
+                "t": "eq",
+                "v": "Stop",
                 "vt": "str"
             }
         ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "Stop",
-        "payload": "",
-        "payloadType": "date",
-        "x": 350,
-        "y": 80,
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 590,
+        "y": 40,
+        "wires": [
+            [],
+            [
+                "76d3e9ad10eb4357",
+                "1c7b39635f5f72c4"
+            ]
+        ]
+    },
+    {
+        "id": "1c7b39635f5f72c4",
+        "type": "template",
+        "z": "4c5d465447dabe08",
+        "name": "Stop Event Record",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "This is the payload: {{payload}} !",
+        "output": "str",
+        "x": 810,
+        "y": 140,
         "wires": [
             [
-                "5c1148c0892e72f1"
+                "28e97e94633f7b11"
             ]
         ]
     }
