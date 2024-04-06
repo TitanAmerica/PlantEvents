@@ -110,11 +110,11 @@
             {
                 "name": "Stop",
                 "from": "Running",
-                "to": "Running"
+                "to": "Stopped"
             },
             {
                 "name": "Start",
-                "from": "Running",
+                "from": "Stopped",
                 "to": "Running"
             }
         ],
