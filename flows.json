@@ -100,21 +100,21 @@
         "triggerPropertyType": "msg",
         "stateProperty": "topic",
         "statePropertyType": "msg",
-        "outputStateChangeOnly": false,
+        "outputStateChangeOnly": true,
         "throwException": true,
         "states": [
-            "Running",
-            "Stopped"
+            "Stopped",
+            "Running"
         ],
         "transitions": [
             {
                 "name": "Stop",
                 "from": "Running",
-                "to": "Stopped"
+                "to": "Running"
             },
             {
                 "name": "Start",
-                "from": "Stopped",
+                "from": "Running",
                 "to": "Running"
             }
         ],
