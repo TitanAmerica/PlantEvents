@@ -186,7 +186,7 @@
         "type": "trigger",
         "z": "4c5d465447dabe08",
         "name": "",
-        "op1": "Running",
+        "op1": "Start",
         "op2": "Stop",
         "op1type": "str",
         "op2type": "str",
