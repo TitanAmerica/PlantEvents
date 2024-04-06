@@ -2,7 +2,7 @@
     {
         "id": "4c5d465447dabe08",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Kiln",
         "disabled": false,
         "info": "",
         "env": []
@@ -13,8 +13,8 @@
         "z": "4c5d465447dabe08",
         "name": "",
         "props": [],
-        "x": 90,
-        "y": 160,
+        "x": 630,
+        "y": 400,
         "wires": [
             []
         ]
@@ -40,10 +40,199 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 100,
+        "x": 580,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ad3ac7606901a9ed",
+        "type": "totaliser",
+        "z": "4c5d465447dabe08",
+        "output": "sum",
+        "interval": "24",
+        "intervalUnits": "hours",
+        "name": "",
+        "x": 340,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "28e97e94633f7b11",
+        "type": "postgresql",
+        "z": "4c5d465447dabe08",
+        "name": "",
+        "query": "SELECT * FROM ;",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 870,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "108a619e05f113be",
+        "type": "OpcUa-Item",
+        "z": "4c5d465447dabe08",
+        "item": "",
+        "datatype": "",
+        "value": "",
+        "name": "Kiln Motor Power",
+        "x": 130,
+        "y": 60,
+        "wires": [
+            [
+                "42b49ad2d9a6c1e7"
+            ]
+        ]
+    },
+    {
+        "id": "5c1148c0892e72f1",
+        "type": "state-machine",
+        "z": "4c5d465447dabe08",
+        "name": "Kiln Status",
+        "triggerProperty": "topic",
+        "triggerPropertyType": "msg",
+        "stateProperty": "topic",
+        "statePropertyType": "msg",
+        "outputStateChangeOnly": false,
+        "throwException": true,
+        "states": [
+            "Running",
+            "Stopped"
+        ],
+        "transitions": [
+            {
+                "name": "Stop",
+                "from": "Running",
+                "to": "Stopped"
+            },
+            {
+                "name": "Start",
+                "from": "Stopped",
+                "to": "Running"
+            }
+        ],
+        "x": 530,
         "y": 60,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "47f89d36bb797d63",
+        "type": "OpcUa-Item",
+        "z": "4c5d465447dabe08",
+        "item": "",
+        "datatype": "",
+        "value": "",
+        "name": "Coal Feedrate",
+        "x": 160,
+        "y": 200,
+        "wires": [
+            [
+                "ad3ac7606901a9ed"
+            ]
+        ]
+    },
+    {
+        "id": "7620775e6bee7b75",
+        "type": "OpcUa-Item",
+        "z": "4c5d465447dabe08",
+        "item": "",
+        "datatype": "",
+        "value": "",
+        "name": "Natural Gas Feedrate",
+        "x": 140,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e4b4acb0ad65a0cf",
+        "type": "OpcUa-Item",
+        "z": "4c5d465447dabe08",
+        "item": "",
+        "datatype": "",
+        "value": "",
+        "name": "Alt Fuels Feedrate",
+        "x": 150,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d5cfe50d8cea1e4c",
+        "type": "moving-average",
+        "z": "4c5d465447dabe08",
+        "name": "",
+        "amount": 10,
+        "weight": "cumulative",
+        "x": 320,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "42b49ad2d9a6c1e7",
+        "type": "trigger",
+        "z": "4c5d465447dabe08",
+        "name": "",
+        "op1": "Running",
+        "op2": "Stop",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "500",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 340,
+        "y": 60,
+        "wires": [
+            [
+                "5c1148c0892e72f1"
+            ]
+        ]
+    },
+    {
+        "id": "61835cf889eef3e6",
+        "type": "inject",
+        "z": "4c5d465447dabe08",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 120,
+        "wires": [
+            [
+                "42b49ad2d9a6c1e7"
+            ]
         ]
     }
 ]
