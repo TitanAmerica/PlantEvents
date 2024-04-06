@@ -118,7 +118,7 @@
                 "to": "Running"
             }
         ],
-        "x": 530,
+        "x": 570,
         "y": 60,
         "wires": [
             []
@@ -185,7 +185,7 @@
         "id": "42b49ad2d9a6c1e7",
         "type": "trigger",
         "z": "4c5d465447dabe08",
-        "name": "",
+        "name": "Listen",
         "op1": "Start",
         "op2": "Stop",
         "op1type": "str",
@@ -197,10 +197,13 @@
         "reset": "",
         "bytopic": "all",
         "topic": "topic",
-        "outputs": 1,
-        "x": 340,
+        "outputs": 2,
+        "x": 310,
         "y": 60,
         "wires": [
+            [
+                "5c1148c0892e72f1"
+            ],
             [
                 "5c1148c0892e72f1"
             ]
@@ -233,6 +236,24 @@
             [
                 "42b49ad2d9a6c1e7"
             ]
+        ]
+    },
+    {
+        "id": "f6455ed1747061a4",
+        "type": "rbe",
+        "z": "4c5d465447dabe08",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 210,
+        "y": 500,
+        "wires": [
+            []
         ]
     }
 ]
