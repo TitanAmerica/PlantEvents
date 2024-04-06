@@ -86,9 +86,7 @@
         "x": 130,
         "y": 60,
         "wires": [
-            [
-                "42b49ad2d9a6c1e7"
-            ]
+            []
         ]
     },
     {
@@ -182,34 +180,6 @@
         ]
     },
     {
-        "id": "42b49ad2d9a6c1e7",
-        "type": "trigger",
-        "z": "4c5d465447dabe08",
-        "name": "Listen",
-        "op1": "Start",
-        "op2": "Stop",
-        "op1type": "str",
-        "op2type": "str",
-        "duration": "500",
-        "extend": true,
-        "overrideDelay": false,
-        "units": "ms",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 2,
-        "x": 310,
-        "y": 60,
-        "wires": [
-            [
-                "5c1148c0892e72f1"
-            ],
-            [
-                "5c1148c0892e72f1"
-            ]
-        ]
-    },
-    {
         "id": "61835cf889eef3e6",
         "type": "inject",
         "z": "4c5d465447dabe08",
@@ -227,14 +197,14 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "",
+        "topic": "start",
         "payload": "",
         "payloadType": "date",
-        "x": 140,
-        "y": 120,
+        "x": 380,
+        "y": 40,
         "wires": [
             [
-                "42b49ad2d9a6c1e7"
+                "5c1148c0892e72f1"
             ]
         ]
     },
