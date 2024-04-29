@@ -32,11 +32,23 @@
         "env": []
     },
     {
+        "id": "60ccb6176681d4ee",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "\\\\winbox1",
+        "secpol": "None",
+        "secmode": "None",
+        "none": true,
+        "login": false,
+        "usercert": false,
+        "usercertificate": "",
+        "userprivatekey": ""
+    },
+    {
         "id": "d162885f5409ab52",
         "type": "OpcUa-Discovery",
         "z": "a3fc98f005fbb17c",
         "name": "Discover OPC Servers",
-        "x": 200,
+        "x": 140,
         "y": 80,
         "wires": [
             [
@@ -57,7 +69,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 420,
+        "x": 340,
         "y": 80,
         "wires": []
     },
@@ -137,12 +149,10 @@
         "datatype": "UInt8",
         "value": "",
         "name": "Kiln Motor Power",
-        "x": 450,
-        "y": 220,
+        "x": 130,
+        "y": 120,
         "wires": [
-            [
-                "5c1148c0892e72f1"
-            ]
+            []
         ]
     },
     {
@@ -219,7 +229,7 @@
         "value": "",
         "name": "Alt Fuels Feedrate",
         "x": 150,
-        "y": 400,
+        "y": 580,
         "wires": [
             []
         ]
@@ -439,11 +449,69 @@
         "id": "db287430f437bd47",
         "type": "comment",
         "z": "4c5d465447dabe08",
-        "name": "",
+        "name": "Start / Stop Events",
         "info": "",
-        "x": 80,
+        "x": 110,
         "y": 40,
         "wires": []
+    },
+    {
+        "id": "e43c8fc4ba4f0749",
+        "type": "OpcUa-Item",
+        "z": "4c5d465447dabe08",
+        "item": "",
+        "datatype": "UInt8",
+        "value": "",
+        "name": "Kiln Feed Rate",
+        "x": 120,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "995b0bcb5b48aa67",
+        "type": "OpcUa-Item",
+        "z": "4c5d465447dabe08",
+        "item": "",
+        "datatype": "UInt8",
+        "value": "",
+        "name": "Kiln Aux Power",
+        "x": 120,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a71441c55a743e49",
+        "type": "OpcUa-Item",
+        "z": "4c5d465447dabe08",
+        "item": "",
+        "datatype": "UInt8",
+        "value": "",
+        "name": "Kiln Aux Power",
+        "x": 120,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "48412987bec2704e",
+        "type": "OpcUa-Browser",
+        "z": "4c5d465447dabe08",
+        "endpoint": "60ccb6176681d4ee",
+        "item": "",
+        "datatype": "",
+        "topic": "",
+        "items": [],
+        "name": "",
+        "x": 310,
+        "y": 80,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "e5d970969cffaf61",
