@@ -36,7 +36,7 @@
         "type": "OpcUa-Discovery",
         "z": "a3fc98f005fbb17c",
         "name": "Discover OPC Servers",
-        "x": 140,
+        "x": 200,
         "y": 80,
         "wires": [
             [
@@ -53,10 +53,11 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 360,
+        "x": 420,
         "y": 80,
         "wires": []
     },
