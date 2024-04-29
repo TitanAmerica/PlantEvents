@@ -135,9 +135,11 @@
         "value": "",
         "name": "Kiln_Motor_Power",
         "x": 130,
-        "y": 120,
+        "y": 140,
         "wires": [
-            []
+            [
+                "19cb2dead81c6658"
+            ]
         ]
     },
     {
@@ -313,24 +315,6 @@
         "wires": []
     },
     {
-        "id": "48412987bec2704e",
-        "type": "OpcUa-Browser",
-        "z": "4c5d465447dabe08",
-        "endpoint": "60ccb6176681d4ee",
-        "item": "",
-        "datatype": "",
-        "topic": "",
-        "items": [],
-        "name": "",
-        "x": 370,
-        "y": 60,
-        "wires": [
-            [
-                "19cb2dead81c6658"
-            ]
-        ]
-    },
-    {
         "id": "19cb2dead81c6658",
         "type": "debug",
         "z": "4c5d465447dabe08",
@@ -342,91 +326,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 660,
-        "y": 60,
-        "wires": []
-    },
-    {
-        "id": "e5d970969cffaf61",
-        "type": "AWS S3",
-        "z": "f017d68592862539",
-        "aws": "",
-        "operation": "AbortMultipartUpload",
-        "Bucket": "",
-        "Key": "",
-        "UploadId": "",
-        "CopySource": "",
-        "Id": "",
-        "Delete": "",
-        "AccelerateConfiguration": "",
-        "AnalyticsConfiguration": "",
-        "CORSConfiguration": "",
-        "ServerSideEncryptionConfiguration": "",
-        "IntelligentTieringConfiguration": "",
-        "InventoryConfiguration": "",
-        "BucketLoggingStatus": "",
-        "MetricsConfiguration": "",
-        "NotificationConfiguration": "",
-        "OwnershipControls": "",
-        "Policy": "",
-        "ReplicationConfiguration": "",
-        "RequestPaymentConfiguration": "",
-        "Tagging": "",
-        "VersioningConfiguration": "",
-        "WebsiteConfiguration": "",
-        "PublicAccessBlockConfiguration": "",
-        "Expression": "",
-        "ExpressionType": "",
-        "InputSerialization": "",
-        "OutputSerialization": "",
-        "PartNumber": "",
-        "name": "",
-        "x": 510,
-        "y": 260,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
-        "id": "0190264fa559465c",
-        "type": "AWS Firehose",
-        "z": "f017d68592862539",
-        "aws": "",
-        "operation": "CreateDeliveryStream",
-        "DeliveryStreamName": "",
-        "Record": "",
-        "Records": "",
-        "Tags": "",
-        "TagKeys": "",
-        "CurrentDeliveryStreamVersionId": "",
-        "DestinationId": "",
-        "name": "",
-        "x": 250,
+        "x": 360,
         "y": 140,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
-        "id": "06131cec1df699dc",
-        "type": "file in",
-        "z": "f017d68592862539",
-        "name": "",
-        "filename": "",
-        "filenameType": "str",
-        "format": "utf8",
-        "chunk": false,
-        "sendError": false,
-        "encoding": "none",
-        "allProps": false,
-        "x": 260,
-        "y": 280,
-        "wires": [
-            [
-                "e5d970969cffaf61"
-            ]
-        ]
+        "wires": []
     }
 ]
