@@ -1,1 +1,1 @@
-# PlantEvents
+# PlantEvents is a Node-RED project that is designed to monitor industrial equipmnent using OPC and write events to a variety of downstream tools.
