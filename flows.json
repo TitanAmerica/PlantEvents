@@ -127,21 +127,6 @@
         ]
     },
     {
-        "id": "28e97e94633f7b11",
-        "type": "postgresql",
-        "z": "4c5d465447dabe08",
-        "name": "",
-        "query": "SELECT * FROM ;",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 1350,
-        "y": 320,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "108a619e05f113be",
         "type": "OpcUa-Item",
         "z": "4c5d465447dabe08",
@@ -266,18 +251,6 @@
         ]
     },
     {
-        "id": "f70de6403a4e853f",
-        "type": "twilio out",
-        "z": "4c5d465447dabe08",
-        "twilioType": "sms",
-        "url": "",
-        "number": "",
-        "name": "",
-        "x": 1330,
-        "y": 380,
-        "wires": []
-    },
-    {
         "id": "76d3e9ad10eb4357",
         "type": "template",
         "z": "4c5d465447dabe08",
@@ -291,9 +264,7 @@
         "x": 1050,
         "y": 260,
         "wires": [
-            [
-                "f70de6403a4e853f"
-            ]
+            []
         ]
     },
     {
@@ -342,9 +313,7 @@
         "x": 1030,
         "y": 220,
         "wires": [
-            [
-                "28e97e94633f7b11"
-            ]
+            []
         ]
     },
     {
@@ -409,11 +378,29 @@
         "topic": "",
         "items": [],
         "name": "",
-        "x": 310,
-        "y": 80,
+        "x": 370,
+        "y": 60,
         "wires": [
-            []
+            [
+                "19cb2dead81c6658"
+            ]
         ]
+    },
+    {
+        "id": "19cb2dead81c6658",
+        "type": "debug",
+        "z": "4c5d465447dabe08",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 60,
+        "wires": []
     },
     {
         "id": "e5d970969cffaf61",
