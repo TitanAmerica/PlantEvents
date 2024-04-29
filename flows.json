@@ -81,8 +81,8 @@
         "datatype": "Int64",
         "value": "",
         "name": "Kiln_Motor_Power",
-        "x": 190,
-        "y": 120,
+        "x": 310,
+        "y": 240,
         "wires": [
             [
                 "19cb2dead81c6658"
@@ -112,8 +112,37 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 420,
-        "y": 120,
+        "x": 520,
+        "y": 240,
         "wires": []
+    },
+    {
+        "id": "f7086ce2a820f4e1",
+        "type": "inject",
+        "z": "4c5d465447dabe08",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 240,
+        "wires": [
+            [
+                "108a619e05f113be"
+            ]
+        ]
     }
 ]
