@@ -130,10 +130,10 @@
         "id": "108a619e05f113be",
         "type": "OpcUa-Item",
         "z": "4c5d465447dabe08",
-        "item": "",
-        "datatype": "UInt8",
+        "item": "Kiln_Motor_Power",
+        "datatype": "Int64",
         "value": "",
-        "name": "Kiln Motor Power",
+        "name": "Kiln_Motor_Power",
         "x": 130,
         "y": 120,
         "wires": [
@@ -189,20 +189,6 @@
             [
                 "ad3ac7606901a9ed"
             ]
-        ]
-    },
-    {
-        "id": "7620775e6bee7b75",
-        "type": "OpcUa-Item",
-        "z": "4c5d465447dabe08",
-        "item": "",
-        "datatype": "",
-        "value": "",
-        "name": "Natural Gas Feedrate",
-        "x": 140,
-        "y": 360,
-        "wires": [
-            []
         ]
     },
     {
@@ -325,48 +311,6 @@
         "x": 110,
         "y": 40,
         "wires": []
-    },
-    {
-        "id": "e43c8fc4ba4f0749",
-        "type": "OpcUa-Item",
-        "z": "4c5d465447dabe08",
-        "item": "",
-        "datatype": "UInt8",
-        "value": "",
-        "name": "Kiln Feed Rate",
-        "x": 120,
-        "y": 180,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "995b0bcb5b48aa67",
-        "type": "OpcUa-Item",
-        "z": "4c5d465447dabe08",
-        "item": "",
-        "datatype": "UInt8",
-        "value": "",
-        "name": "Kiln Aux Power",
-        "x": 120,
-        "y": 240,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "a71441c55a743e49",
-        "type": "OpcUa-Item",
-        "z": "4c5d465447dabe08",
-        "item": "",
-        "datatype": "UInt8",
-        "value": "",
-        "name": "Kiln Aux Power",
-        "x": 120,
-        "y": 300,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "48412987bec2704e",
