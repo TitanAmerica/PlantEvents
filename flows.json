@@ -110,6 +110,456 @@
         "userprivatekey": ""
     },
     {
+        "id": "7fd346b1b6af1a8c",
+        "type": "comment",
+        "z": "5ea380380932017d",
+        "name": "Primary Crusher",
+        "info": "",
+        "x": 140,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "619957f472d1449b",
+        "type": "OpcUa-Client",
+        "z": "5ea380380932017d",
+        "endpoint": "0aa3aba3e786d7a7",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
+        "name": "ECS4375SVR01",
+        "x": 350,
+        "y": 140,
+        "wires": [
+            [
+                "b5d811978fb9f113",
+                "fd9c2a71bdbf7458"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "b5d811978fb9f113",
+        "type": "debug",
+        "z": "5ea380380932017d",
+        "name": "Tag Value",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "fd9c2a71bdbf7458",
+        "type": "switch",
+        "z": "5ea380380932017d",
+        "name": "Power?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "10",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 560,
+        "y": 140,
+        "wires": [
+            [
+                "424bd630d0101a7c"
+            ],
+            [
+                "e362b4234219f366"
+            ]
+        ]
+    },
+    {
+        "id": "244b41a2e2fd14d5",
+        "type": "state-machine",
+        "z": "5ea380380932017d",
+        "name": "Primary Crusher Status",
+        "triggerProperty": "payload",
+        "triggerPropertyType": "msg",
+        "stateProperty": "payload",
+        "statePropertyType": "msg",
+        "outputStateChangeOnly": true,
+        "throwException": false,
+        "states": [
+            "Stopped",
+            "Running"
+        ],
+        "transitions": [
+            {
+                "name": "Stop",
+                "from": "*",
+                "to": "Running"
+            },
+            {
+                "name": "Start",
+                "from": "*",
+                "to": "Running"
+            }
+        ],
+        "x": 990,
+        "y": 140,
+        "wires": [
+            [
+                "51913e2bd9951137"
+            ]
+        ]
+    },
+    {
+        "id": "424bd630d0101a7c",
+        "type": "change",
+        "z": "5ea380380932017d",
+        "name": "Has Power",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Power",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 100,
+        "wires": [
+            [
+                "244b41a2e2fd14d5"
+            ]
+        ]
+    },
+    {
+        "id": "e362b4234219f366",
+        "type": "change",
+        "z": "5ea380380932017d",
+        "name": "No Power",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "NoPower",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 180,
+        "wires": [
+            [
+                "244b41a2e2fd14d5"
+            ]
+        ]
+    },
+    {
+        "id": "51913e2bd9951137",
+        "type": "mqtt out",
+        "z": "5ea380380932017d",
+        "name": "BroadcastStateChange",
+        "topic": "RCC/RM2",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "",
+        "x": 1150,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "782fd0f2e252362f",
+        "type": "inject",
+        "z": "5ea380380932017d",
+        "name": "Specify Tag",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "ns=2;s=1:ZZZZ?Value",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "619957f472d1449b"
+            ]
+        ]
+    },
+    {
+        "id": "1341bb055829cb21",
+        "type": "comment",
+        "z": "5ea380380932017d",
+        "name": "Secondary Crusher",
+        "info": "",
+        "x": 150,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "6a3ffc79ce088ca7",
+        "type": "OpcUa-Client",
+        "z": "5ea380380932017d",
+        "endpoint": "0aa3aba3e786d7a7",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
+        "name": "ECS4375SVR01",
+        "x": 350,
+        "y": 460,
+        "wires": [
+            [
+                "7381bc0e5e573163",
+                "c9fb378013e54925"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "7381bc0e5e573163",
+        "type": "debug",
+        "z": "5ea380380932017d",
+        "name": "Tag Value",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "c9fb378013e54925",
+        "type": "switch",
+        "z": "5ea380380932017d",
+        "name": "Power?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "10",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 560,
+        "y": 460,
+        "wires": [
+            [
+                "fe805508028c70ad"
+            ],
+            [
+                "243282d469e906fd"
+            ]
+        ]
+    },
+    {
+        "id": "7f86c26ca63b5725",
+        "type": "state-machine",
+        "z": "5ea380380932017d",
+        "name": "Secondary Crusher Status",
+        "triggerProperty": "payload",
+        "triggerPropertyType": "msg",
+        "stateProperty": "payload",
+        "statePropertyType": "msg",
+        "outputStateChangeOnly": true,
+        "throwException": false,
+        "states": [
+            "Stopped",
+            "Running"
+        ],
+        "transitions": [
+            {
+                "name": "Stop",
+                "from": "*",
+                "to": "Running"
+            },
+            {
+                "name": "Start",
+                "from": "*",
+                "to": "Running"
+            }
+        ],
+        "x": 1000,
+        "y": 460,
+        "wires": [
+            [
+                "a36590df5206cff8"
+            ]
+        ]
+    },
+    {
+        "id": "fe805508028c70ad",
+        "type": "change",
+        "z": "5ea380380932017d",
+        "name": "Has Power",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Power",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 420,
+        "wires": [
+            [
+                "7f86c26ca63b5725"
+            ]
+        ]
+    },
+    {
+        "id": "243282d469e906fd",
+        "type": "change",
+        "z": "5ea380380932017d",
+        "name": "No Power",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "NoPower",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 500,
+        "wires": [
+            [
+                "7f86c26ca63b5725"
+            ]
+        ]
+    },
+    {
+        "id": "a36590df5206cff8",
+        "type": "mqtt out",
+        "z": "5ea380380932017d",
+        "name": "BroadcastStateChange",
+        "topic": "RCC/RM2",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "",
+        "x": 1090,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "7fa413558c776f65",
+        "type": "inject",
+        "z": "5ea380380932017d",
+        "name": "Specify Tag",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "ns=2;s=1:ZZZZ?Value",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 460,
+        "wires": [
+            [
+                "6a3ffc79ce088ca7"
+            ]
+        ]
+    },
+    {
         "id": "6df472a743c0623a",
         "type": "OpcUa-Client",
         "z": "fbc7fe71e9da92df",
