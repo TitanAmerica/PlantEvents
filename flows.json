@@ -758,6 +758,150 @@
         ]
     },
     {
+        "id": "ebfd8722e5ec5651",
+        "type": "OpcUa-Client",
+        "z": "8fba20fe3c7a5b1f",
+        "endpoint": "",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
+        "name": "",
+        "x": 340,
+        "y": 380,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "b3e2b6b5979e0318",
+        "type": "inject",
+        "z": "8fba20fe3c7a5b1f",
+        "name": "Specify Tag",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "ns=2;s=1:ZZZZ?Value",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 380,
+        "wires": [
+            [
+                "ebfd8722e5ec5651"
+            ]
+        ]
+    },
+    {
+        "id": "ab5479c4c3f9b7a2",
+        "type": "OpcUa-Client",
+        "z": "8fba20fe3c7a5b1f",
+        "endpoint": "",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
+        "name": "",
+        "x": 340,
+        "y": 540,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c14e806c229a9648",
+        "type": "inject",
+        "z": "8fba20fe3c7a5b1f",
+        "name": "Specify Tag",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "ns=2;s=1:ZZZZ?Value",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 540,
+        "wires": [
+            [
+                "ab5479c4c3f9b7a2"
+            ]
+        ]
+    },
+    {
+        "id": "f4bbfce61f996b5e",
+        "type": "comment",
+        "z": "8fba20fe3c7a5b1f",
+        "name": "Main Power",
+        "info": "",
+        "x": 150,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "c2f29d5e6e7c2419",
+        "type": "comment",
+        "z": "8fba20fe3c7a5b1f",
+        "name": "Emergency Drive Power",
+        "info": "",
+        "x": 190,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "f8417aefc3089af2",
+        "type": "comment",
+        "z": "8fba20fe3c7a5b1f",
+        "name": "RPM",
+        "info": "",
+        "x": 130,
+        "y": 500,
+        "wires": []
+    },
+    {
         "id": "fbd56b1670048118",
         "type": "comment",
         "z": "486a780d98a6d614",
