@@ -1,5 +1,13 @@
 [
     {
+        "id": "5ea380380932017d",
+        "type": "tab",
+        "label": "Quarry",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "fbc7fe71e9da92df",
         "type": "tab",
         "label": "Raw Mills",
