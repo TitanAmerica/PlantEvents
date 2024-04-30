@@ -93,8 +93,8 @@
         "datatype": "Int64",
         "value": "",
         "name": "PyroProcess.Kiln_Feed_Rate",
-        "x": 350,
-        "y": 240,
+        "x": 450,
+        "y": 160,
         "wires": [
             []
         ]
@@ -122,7 +122,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 800,
+        "x": 680,
         "y": 200,
         "wires": []
     },
@@ -147,8 +147,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 100,
-        "y": 240,
+        "x": 180,
+        "y": 160,
         "wires": [
             [
                 "108a619e05f113be",
@@ -194,8 +194,8 @@
         "receiveBufferSize": 8192,
         "sendBufferSize": 8192,
         "name": "",
-        "x": 420,
-        "y": 340,
+        "x": 400,
+        "y": 220,
         "wires": [
             [
                 "19cb2dead81c6658"
