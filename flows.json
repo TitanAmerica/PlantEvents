@@ -293,8 +293,8 @@
         "interval": "10",
         "intervalUnits": "seconds",
         "name": "",
-        "x": 500,
-        "y": 400,
+        "x": 720,
+        "y": 320,
         "wires": [
             []
         ]
