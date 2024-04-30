@@ -118,10 +118,13 @@
         "receiveBufferSize": 8192,
         "sendBufferSize": 8192,
         "name": "",
-        "x": 340,
-        "y": 100,
+        "x": 300,
+        "y": 160,
         "wires": [
-            [],
+            [
+                "821ae101d3bb0641",
+                "8eb44296b1b37afd"
+            ],
             []
         ]
     },
@@ -146,11 +149,152 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 140,
-        "y": 100,
+        "x": 120,
+        "y": 160,
         "wires": [
             [
                 "6df472a743c0623a"
+            ]
+        ]
+    },
+    {
+        "id": "821ae101d3bb0641",
+        "type": "debug",
+        "z": "fbc7fe71e9da92df",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "8eb44296b1b37afd",
+        "type": "switch",
+        "z": "fbc7fe71e9da92df",
+        "name": "Power?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "10",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 480,
+        "y": 160,
+        "wires": [
+            [
+                "da929a970f923070"
+            ],
+            [
+                "30d3d5cb63814f3e"
+            ]
+        ]
+    },
+    {
+        "id": "1ab53fc596cc3fc9",
+        "type": "state-machine",
+        "z": "fbc7fe71e9da92df",
+        "name": "",
+        "triggerProperty": "topic",
+        "triggerPropertyType": "msg",
+        "stateProperty": "topic",
+        "statePropertyType": "msg",
+        "outputStateChangeOnly": false,
+        "throwException": false,
+        "states": [
+            "start",
+            "",
+            "",
+            ""
+        ],
+        "transitions": [
+            {
+                "name": "",
+                "from": "",
+                "to": ""
+            },
+            {
+                "name": "",
+                "from": "",
+                "to": ""
+            },
+            {
+                "name": "",
+                "from": "",
+                "to": ""
+            }
+        ],
+        "x": 880,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "da929a970f923070",
+        "type": "change",
+        "z": "fbc7fe71e9da92df",
+        "name": "Has Power",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Power",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 120,
+        "wires": [
+            [
+                "1ab53fc596cc3fc9"
+            ]
+        ]
+    },
+    {
+        "id": "30d3d5cb63814f3e",
+        "type": "change",
+        "z": "fbc7fe71e9da92df",
+        "name": "No Power",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "NoPower",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 200,
+        "wires": [
+            [
+                "1ab53fc596cc3fc9"
             ]
         ]
     },
