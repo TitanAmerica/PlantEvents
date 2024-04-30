@@ -178,7 +178,7 @@
         "type": "OpcUa-Client",
         "z": "4c5d465447dabe08",
         "endpoint": "60ccb6176681d4ee",
-        "action": "info",
+        "action": "connect",
         "deadbandtype": "a",
         "deadbandvalue": 1,
         "time": 10,
