@@ -1,55 +1,160 @@
 [
     {
-        "id": "8fba20fe3c7a5b1f",
+        "id": "fbc7fe71e9da92df",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Raw Mill 1",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
-        "id": "2be34e463b8ba255",
-        "type": "inject",
-        "z": "8fba20fe3c7a5b1f",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
+        "id": "6067a2d8141b6225",
+        "type": "tab",
+        "label": "Raw Mill 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8fba20fe3c7a5b1f",
+        "type": "tab",
+        "label": "Kiln",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6ed74151d0417356",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
         ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 180,
-        "y": 80,
+        "showPathInSidebar": false,
+        "navigationStyle": "default"
+    },
+    {
+        "id": "7a3b08ce39972f98",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "25dcac802de8c675",
+        "type": "ui-page",
+        "name": "Page N",
+        "ui": "6ed74151d0417356",
+        "path": "/pageN",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "7a3b08ce39972f98",
+        "order": -1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "903993860ac9bebc",
+        "type": "ui-group",
+        "name": "My Group",
+        "page": "25dcac802de8c675",
+        "width": 6,
+        "height": 1,
+        "order": -1,
+        "showTitle": true,
+        "className": "",
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "c2a9053ab8596a11",
+        "type": "ui-table",
+        "z": "8fba20fe3c7a5b1f",
+        "group": "903993860ac9bebc",
+        "name": "",
+        "label": "text",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "maxrows": 0,
+        "passthru": false,
+        "autocols": true,
+        "selectionType": "none",
+        "columns": null,
+        "x": 810,
+        "y": 420,
         "wires": [
-            [
-                "28c58542a12449b0"
-            ]
+            []
         ]
     },
     {
-        "id": "28c58542a12449b0",
-        "type": "debug",
+        "id": "8fcd8a10ae91c213",
+        "type": "postgresql",
         "z": "8fba20fe3c7a5b1f",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 440,
-        "y": 80,
-        "wires": []
+        "name": "",
+        "query": "SELECT * FROM ;",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 1110,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8763eb2281a86083",
+        "type": "state-machine",
+        "z": "8fba20fe3c7a5b1f",
+        "name": "",
+        "triggerProperty": "topic",
+        "triggerPropertyType": "msg",
+        "stateProperty": "topic",
+        "statePropertyType": "msg",
+        "outputStateChangeOnly": false,
+        "throwException": false,
+        "states": [
+            "start",
+            "",
+            "",
+            ""
+        ],
+        "transitions": [
+            {
+                "name": "",
+                "from": "",
+                "to": ""
+            },
+            {
+                "name": "",
+                "from": "",
+                "to": ""
+            },
+            {
+                "name": "",
+                "from": "",
+                "to": ""
+            }
+        ],
+        "x": 640,
+        "y": 140,
+        "wires": [
+            []
+        ]
     }
 ]
