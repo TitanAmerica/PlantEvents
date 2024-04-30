@@ -323,7 +323,7 @@
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
-        "topic": "ns=2;s=1:ZZZZ?Value",
+        "topic": "ns=2;s=1:Q_1030?Value",
         "payload": "",
         "payloadType": "date",
         "x": 150,
@@ -548,7 +548,7 @@
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
-        "topic": "ns=2;s=1:ZZZZ?Value",
+        "topic": "ns=2;s=1:Q_1065?Value",
         "payload": "",
         "payloadType": "date",
         "x": 150,
@@ -580,7 +580,7 @@
         "receiveBufferSize": 8192,
         "sendBufferSize": 8192,
         "name": "ECS4375SVR01",
-        "x": 310,
+        "x": 370,
         "y": 160,
         "wires": [
             [
@@ -594,7 +594,7 @@
         "id": "847899befdb7d549",
         "type": "inject",
         "z": "fbc7fe71e9da92df",
-        "name": "Specify Tag",
+        "name": "RM1 Mill Motor KW",
         "props": [
             {
                 "p": "payload"
@@ -608,10 +608,10 @@
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
-        "topic": "ns=2;s=1:ZZZZ?Value",
+        "topic": "ns=2;s=1:R1J0313?Value",
         "payload": "",
         "payloadType": "date",
-        "x": 110,
+        "x": 140,
         "y": 160,
         "wires": [
             [
@@ -632,7 +632,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
+        "x": 560,
         "y": 100,
         "wires": []
     },
@@ -656,7 +656,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 520,
+        "x": 560,
         "y": 160,
         "wires": [
             [
@@ -694,7 +694,7 @@
                 "to": "Running"
             }
         ],
-        "x": 910,
+        "x": 950,
         "y": 160,
         "wires": [
             [
@@ -721,7 +721,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 710,
+        "x": 750,
         "y": 120,
         "wires": [
             [
@@ -748,7 +748,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 700,
+        "x": 740,
         "y": 200,
         "wires": [
             [
@@ -780,7 +780,7 @@
         "correl": "",
         "expiry": "",
         "broker": "",
-        "x": 1130,
+        "x": 1170,
         "y": 160,
         "wires": []
     },
@@ -815,7 +815,7 @@
         "receiveBufferSize": 8192,
         "sendBufferSize": 8192,
         "name": "ECS4375SVR01",
-        "x": 310,
+        "x": 370,
         "y": 600,
         "wires": [
             [
@@ -838,7 +838,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
+        "x": 580,
         "y": 540,
         "wires": []
     },
@@ -862,7 +862,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 520,
+        "x": 580,
         "y": 600,
         "wires": [
             [
@@ -900,7 +900,7 @@
                 "to": "Running"
             }
         ],
-        "x": 910,
+        "x": 970,
         "y": 600,
         "wires": [
             [
@@ -927,7 +927,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 710,
+        "x": 770,
         "y": 560,
         "wires": [
             [
@@ -954,7 +954,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 700,
+        "x": 760,
         "y": 640,
         "wires": [
             [
@@ -976,7 +976,7 @@
         "correl": "",
         "expiry": "",
         "broker": "",
-        "x": 1130,
+        "x": 1190,
         "y": 600,
         "wires": []
     },
@@ -984,7 +984,7 @@
         "id": "796b0bc487ca3b7f",
         "type": "inject",
         "z": "fbc7fe71e9da92df",
-        "name": "Specify Tag",
+        "name": "RM2 Mill Motor KW",
         "props": [
             {
                 "p": "payload"
@@ -998,10 +998,10 @@
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
-        "topic": "ns=2;s=1:ZZZZ?Value",
+        "topic": "ns=2;s=1:R2J0413?Value",
         "payload": "",
         "payloadType": "date",
-        "x": 110,
+        "x": 140,
         "y": 600,
         "wires": [
             [
@@ -1216,7 +1216,7 @@
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
-        "topic": "ns=2;s=1:ZZZZ?Value",
+        "topic": "ns=2;s=1:K5AT403?Value",
         "payload": "",
         "payloadType": "date",
         "x": 150,
