@@ -146,10 +146,10 @@
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
-        "topic": "",
+        "topic": "ns=2;s=1:ZZZZ?Value",
         "payload": "",
         "payloadType": "date",
-        "x": 130,
+        "x": 110,
         "y": 160,
         "wires": [
             [
@@ -281,6 +281,20 @@
             [
                 "1ab53fc596cc3fc9"
             ]
+        ]
+    },
+    {
+        "id": "f9573a26bc0ed175",
+        "type": "totaliser",
+        "z": "fbc7fe71e9da92df",
+        "output": "sum",
+        "interval": "10",
+        "intervalUnits": "seconds",
+        "name": "",
+        "x": 440,
+        "y": 540,
+        "wires": [
+            []
         ]
     },
     {
