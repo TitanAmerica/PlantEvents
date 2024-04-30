@@ -62,7 +62,7 @@
         "domain": "markham.lan",
         "progid": "F8582CF2-88FB-11D0-B850-00C0F0104305",
         "clsid": "F8582CF2-88FB-11D0-B850-00C0F0104305",
-        "verbose": "default",
+        "verbose": "on",
         "name": "Matrikon OPC Simulation",
         "vartable": [],
         "timeout": "5000"
@@ -167,12 +167,12 @@
         "type": "opc-da in",
         "z": "4c5d465447dabe08",
         "group": "0f2e298473180940",
-        "mode": "all-split",
+        "mode": "all",
         "diff": true,
         "name": "",
         "item": "",
-        "x": 350,
-        "y": 240,
+        "x": 410,
+        "y": 220,
         "wires": [
             [
                 "19cb2dead81c6658"
