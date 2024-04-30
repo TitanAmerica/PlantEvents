@@ -226,7 +226,9 @@
         "x": 850,
         "y": 160,
         "wires": [
-            []
+            [
+                "a4fd2bbe56dcd2ca"
+            ]
         ]
     },
     {
@@ -296,6 +298,44 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "e444775fa03f2cef",
+        "type": "comment",
+        "z": "fbc7fe71e9da92df",
+        "name": "Equipment Status",
+        "info": "",
+        "x": 110,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "dfaa624650408c6e",
+        "type": "comment",
+        "z": "fbc7fe71e9da92df",
+        "name": "Running Totals",
+        "info": "",
+        "x": 100,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "a4fd2bbe56dcd2ca",
+        "type": "mqtt out",
+        "z": "fbc7fe71e9da92df",
+        "name": "BroadcastStateChange",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "",
+        "x": 1050,
+        "y": 160,
+        "wires": []
     },
     {
         "id": "c2a9053ab8596a11",
