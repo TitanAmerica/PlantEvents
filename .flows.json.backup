@@ -210,10 +210,7 @@
         "throwException": false,
         "states": [
             "Stopped",
-            "Running",
-            "Cooldown",
-            "Preheat",
-            "Slow Turn"
+            "Running"
         ],
         "transitions": [
             {
@@ -304,7 +301,7 @@
         "type": "mqtt out",
         "z": "fbc7fe71e9da92df",
         "name": "BroadcastStateChange",
-        "topic": "",
+        "topic": "RCC/RM1",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -503,7 +500,7 @@
         "type": "mqtt out",
         "z": "fbc7fe71e9da92df",
         "name": "BroadcastStateChange",
-        "topic": "",
+        "topic": "RCC/RM2",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -546,79 +543,677 @@
         ]
     },
     {
-        "id": "c2a9053ab8596a11",
-        "type": "ui-table",
+        "id": "e81c3e192e92ab37",
+        "type": "OpcUa-Client",
         "z": "8fba20fe3c7a5b1f",
-        "group": "903993860ac9bebc",
+        "endpoint": "",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
         "name": "",
-        "label": "text",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "maxrows": 0,
-        "passthru": false,
-        "autocols": true,
-        "selectionType": "none",
-        "columns": null,
-        "x": 810,
-        "y": 420,
+        "x": 340,
+        "y": 180,
         "wires": [
+            [
+                "e09df6d60b90b413",
+                "014f9797c3cb7ada"
+            ],
             []
         ]
     },
     {
-        "id": "8fcd8a10ae91c213",
-        "type": "postgresql",
+        "id": "e09df6d60b90b413",
+        "type": "debug",
         "z": "8fba20fe3c7a5b1f",
-        "name": "",
-        "query": "SELECT * FROM ;",
-        "split": false,
-        "rowsPerMsg": 1,
-        "outputs": 1,
-        "x": 1110,
-        "y": 240,
+        "name": "Tag Value",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "014f9797c3cb7ada",
+        "type": "switch",
+        "z": "8fba20fe3c7a5b1f",
+        "name": "Power?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "10",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 520,
+        "y": 180,
         "wires": [
-            []
+            [
+                "beec198b7f636f10"
+            ],
+            [
+                "7e98a7621b033004"
+            ]
         ]
     },
     {
-        "id": "8763eb2281a86083",
+        "id": "cb11564b586bbae3",
         "type": "state-machine",
         "z": "8fba20fe3c7a5b1f",
-        "name": "",
-        "triggerProperty": "topic",
+        "name": "Kiln Status",
+        "triggerProperty": "payload",
         "triggerPropertyType": "msg",
-        "stateProperty": "topic",
+        "stateProperty": "payload",
         "statePropertyType": "msg",
-        "outputStateChangeOnly": false,
+        "outputStateChangeOnly": true,
         "throwException": false,
         "states": [
-            "start",
-            "",
-            "",
-            ""
+            "Stopped",
+            "Running",
+            "Cooldown",
+            "Preheat",
+            "Slow Turn"
         ],
         "transitions": [
             {
-                "name": "",
-                "from": "",
-                "to": ""
+                "name": "Stop",
+                "from": "*",
+                "to": "Running"
             },
             {
-                "name": "",
-                "from": "",
-                "to": ""
-            },
-            {
-                "name": "",
-                "from": "",
-                "to": ""
+                "name": "Start",
+                "from": "*",
+                "to": "Running"
             }
         ],
-        "x": 640,
+        "x": 910,
+        "y": 180,
+        "wires": [
+            [
+                "fda824e67084b66d"
+            ]
+        ]
+    },
+    {
+        "id": "beec198b7f636f10",
+        "type": "change",
+        "z": "8fba20fe3c7a5b1f",
+        "name": "Has Power",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Power",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
         "y": 140,
         "wires": [
+            [
+                "cb11564b586bbae3"
+            ]
+        ]
+    },
+    {
+        "id": "7e98a7621b033004",
+        "type": "change",
+        "z": "8fba20fe3c7a5b1f",
+        "name": "No Power",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "NoPower",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 220,
+        "wires": [
+            [
+                "cb11564b586bbae3"
+            ]
+        ]
+    },
+    {
+        "id": "fda824e67084b66d",
+        "type": "mqtt out",
+        "z": "8fba20fe3c7a5b1f",
+        "name": "BroadcastStateChange",
+        "topic": "RCC/Kiln",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "",
+        "x": 1130,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "d6ae156f6d4d0b1c",
+        "type": "inject",
+        "z": "8fba20fe3c7a5b1f",
+        "name": "Specify Tag",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "ns=2;s=1:ZZZZ?Value",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 180,
+        "wires": [
+            [
+                "e81c3e192e92ab37"
+            ]
+        ]
+    },
+    {
+        "id": "fbd56b1670048118",
+        "type": "comment",
+        "z": "486a780d98a6d614",
+        "name": "FM10",
+        "info": "",
+        "x": 110,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "e623609ba3445cca",
+        "type": "OpcUa-Client",
+        "z": "486a780d98a6d614",
+        "endpoint": "",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
+        "name": "",
+        "x": 340,
+        "y": 140,
+        "wires": [
+            [
+                "16d53306966acbf5",
+                "fb50cbbfa4bde358"
+            ],
             []
+        ]
+    },
+    {
+        "id": "16d53306966acbf5",
+        "type": "debug",
+        "z": "486a780d98a6d614",
+        "name": "Tag Value",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "fb50cbbfa4bde358",
+        "type": "switch",
+        "z": "486a780d98a6d614",
+        "name": "Power?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "10",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 520,
+        "y": 140,
+        "wires": [
+            [
+                "92124edc0dfd6be7"
+            ],
+            [
+                "7512993615ae1345"
+            ]
+        ]
+    },
+    {
+        "id": "41f2c73efe5825e3",
+        "type": "state-machine",
+        "z": "486a780d98a6d614",
+        "name": "FM10 Status",
+        "triggerProperty": "payload",
+        "triggerPropertyType": "msg",
+        "stateProperty": "payload",
+        "statePropertyType": "msg",
+        "outputStateChangeOnly": true,
+        "throwException": false,
+        "states": [
+            "Stopped",
+            "Running",
+            "Cooldown",
+            "Preheat",
+            "Slow Turn"
+        ],
+        "transitions": [
+            {
+                "name": "Stop",
+                "from": "*",
+                "to": "Running"
+            },
+            {
+                "name": "Start",
+                "from": "*",
+                "to": "Running"
+            }
+        ],
+        "x": 910,
+        "y": 140,
+        "wires": [
+            [
+                "2ea16662090568a4"
+            ]
+        ]
+    },
+    {
+        "id": "92124edc0dfd6be7",
+        "type": "change",
+        "z": "486a780d98a6d614",
+        "name": "Has Power",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Power",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 100,
+        "wires": [
+            [
+                "41f2c73efe5825e3"
+            ]
+        ]
+    },
+    {
+        "id": "7512993615ae1345",
+        "type": "change",
+        "z": "486a780d98a6d614",
+        "name": "No Power",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "NoPower",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 180,
+        "wires": [
+            [
+                "41f2c73efe5825e3"
+            ]
+        ]
+    },
+    {
+        "id": "2ea16662090568a4",
+        "type": "mqtt out",
+        "z": "486a780d98a6d614",
+        "name": "BroadcastStateChange",
+        "topic": "RCC/FM10",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "",
+        "x": 1130,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "c10606902953c3e9",
+        "type": "inject",
+        "z": "486a780d98a6d614",
+        "name": "Specify Tag",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "ns=2;s=1:ZZZZ?Value",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "e623609ba3445cca"
+            ]
+        ]
+    },
+    {
+        "id": "14068dbb74cc953a",
+        "type": "comment",
+        "z": "486a780d98a6d614",
+        "name": "FM11",
+        "info": "",
+        "x": 110,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "efb4787492b78889",
+        "type": "OpcUa-Client",
+        "z": "486a780d98a6d614",
+        "endpoint": "",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
+        "name": "",
+        "x": 340,
+        "y": 420,
+        "wires": [
+            [
+                "fd86029302eec2cb",
+                "a8165eb4c557f87e"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "fd86029302eec2cb",
+        "type": "debug",
+        "z": "486a780d98a6d614",
+        "name": "Tag Value",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "a8165eb4c557f87e",
+        "type": "switch",
+        "z": "486a780d98a6d614",
+        "name": "Power?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "10",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 520,
+        "y": 420,
+        "wires": [
+            [
+                "7159e00941744679"
+            ],
+            [
+                "9206275fecff1076"
+            ]
+        ]
+    },
+    {
+        "id": "6223f8cade56a2b6",
+        "type": "state-machine",
+        "z": "486a780d98a6d614",
+        "name": "FM11 Status",
+        "triggerProperty": "payload",
+        "triggerPropertyType": "msg",
+        "stateProperty": "payload",
+        "statePropertyType": "msg",
+        "outputStateChangeOnly": true,
+        "throwException": false,
+        "states": [
+            "Stopped",
+            "Running",
+            "Cooldown",
+            "Preheat",
+            "Slow Turn"
+        ],
+        "transitions": [
+            {
+                "name": "Stop",
+                "from": "*",
+                "to": "Running"
+            },
+            {
+                "name": "Start",
+                "from": "*",
+                "to": "Running"
+            }
+        ],
+        "x": 910,
+        "y": 420,
+        "wires": [
+            [
+                "e36733a572b3e78c"
+            ]
+        ]
+    },
+    {
+        "id": "7159e00941744679",
+        "type": "change",
+        "z": "486a780d98a6d614",
+        "name": "Has Power",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Power",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 380,
+        "wires": [
+            [
+                "6223f8cade56a2b6"
+            ]
+        ]
+    },
+    {
+        "id": "9206275fecff1076",
+        "type": "change",
+        "z": "486a780d98a6d614",
+        "name": "No Power",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "NoPower",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 460,
+        "wires": [
+            [
+                "6223f8cade56a2b6"
+            ]
+        ]
+    },
+    {
+        "id": "e36733a572b3e78c",
+        "type": "mqtt out",
+        "z": "486a780d98a6d614",
+        "name": "BroadcastStateChange",
+        "topic": "RCC/FM11",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "",
+        "x": 1130,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "17ba5a4e4423cd26",
+        "type": "inject",
+        "z": "486a780d98a6d614",
+        "name": "Specify Tag",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "ns=2;s=1:ZZZZ?Value",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 420,
+        "wires": [
+            [
+                "efb4787492b78889"
+            ]
         ]
     }
 ]
