@@ -2,15 +2,7 @@
     {
         "id": "fbc7fe71e9da92df",
         "type": "tab",
-        "label": "Raw Mill 1",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "6067a2d8141b6225",
-        "type": "tab",
-        "label": "Raw Mill 2",
+        "label": "Raw Mills",
         "disabled": false,
         "info": "",
         "env": []
@@ -26,17 +18,17 @@
     {
         "id": "486a780d98a6d614",
         "type": "tab",
-        "label": "Finish Mill 10",
+        "label": "Finish Mills",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
-        "id": "491911e96b64cd26",
+        "id": "9d49f9ea34db9390",
         "type": "tab",
-        "label": "Finish Mill 11",
+        "label": "Dashboard",
         "disabled": false,
-        "info": "",
+        "info": "Provide a dashboard that the plant operational staff can use to provide coding to events.",
         "env": []
     },
     {
@@ -161,12 +153,13 @@
         "id": "821ae101d3bb0641",
         "type": "debug",
         "z": "fbc7fe71e9da92df",
-        "name": "debug 1",
-        "active": true,
+        "name": "Tag Value",
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
         "x": 480,
@@ -208,22 +201,33 @@
         "id": "1ab53fc596cc3fc9",
         "type": "state-machine",
         "z": "fbc7fe71e9da92df",
-        "name": "Status",
+        "name": "RM1 Status",
         "triggerProperty": "payload",
         "triggerPropertyType": "msg",
         "stateProperty": "payload",
         "statePropertyType": "msg",
-        "outputStateChangeOnly": false,
+        "outputStateChangeOnly": true,
         "throwException": false,
         "states": [
-            "Running",
             "Stopped",
+            "Running",
             "Cooldown",
             "Preheat",
             "Slow Turn"
         ],
-        "transitions": [],
-        "x": 850,
+        "transitions": [
+            {
+                "name": "Stop",
+                "from": "*",
+                "to": "Running"
+            },
+            {
+                "name": "Start",
+                "from": "*",
+                "to": "Running"
+            }
+        ],
+        "x": 870,
         "y": 160,
         "wires": [
             [
@@ -286,37 +290,13 @@
         ]
     },
     {
-        "id": "f9573a26bc0ed175",
-        "type": "totaliser",
-        "z": "fbc7fe71e9da92df",
-        "output": "sum",
-        "interval": "10",
-        "intervalUnits": "seconds",
-        "name": "",
-        "x": 500,
-        "y": 400,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "e444775fa03f2cef",
         "type": "comment",
         "z": "fbc7fe71e9da92df",
-        "name": "Equipment Status",
+        "name": "RM1",
         "info": "",
-        "x": 110,
+        "x": 70,
         "y": 100,
-        "wires": []
-    },
-    {
-        "id": "dfaa624650408c6e",
-        "type": "comment",
-        "z": "fbc7fe71e9da92df",
-        "name": "Running Totals",
-        "info": "",
-        "x": 100,
-        "y": 300,
         "wires": []
     },
     {
@@ -333,9 +313,237 @@
         "correl": "",
         "expiry": "",
         "broker": "",
-        "x": 1050,
+        "x": 1090,
         "y": 160,
         "wires": []
+    },
+    {
+        "id": "233b41aa5d577982",
+        "type": "comment",
+        "z": "fbc7fe71e9da92df",
+        "name": "RM2",
+        "info": "",
+        "x": 70,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "9477ea37ebbba7e6",
+        "type": "OpcUa-Client",
+        "z": "fbc7fe71e9da92df",
+        "endpoint": "",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
+        "name": "",
+        "x": 300,
+        "y": 600,
+        "wires": [
+            [
+                "a11202a46c304563",
+                "88d1ca7220e0f86f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a11202a46c304563",
+        "type": "debug",
+        "z": "fbc7fe71e9da92df",
+        "name": "Tag Value",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "88d1ca7220e0f86f",
+        "type": "switch",
+        "z": "fbc7fe71e9da92df",
+        "name": "Power?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "10",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 480,
+        "y": 600,
+        "wires": [
+            [
+                "31a9ebe1cba768f3"
+            ],
+            [
+                "cc1cf8f6953ccd17"
+            ]
+        ]
+    },
+    {
+        "id": "a8bf928dfc668b8d",
+        "type": "state-machine",
+        "z": "fbc7fe71e9da92df",
+        "name": "RM2 Status",
+        "triggerProperty": "payload",
+        "triggerPropertyType": "msg",
+        "stateProperty": "payload",
+        "statePropertyType": "msg",
+        "outputStateChangeOnly": true,
+        "throwException": false,
+        "states": [
+            "Stopped",
+            "Running",
+            "Cooldown",
+            "Preheat",
+            "Slow Turn"
+        ],
+        "transitions": [
+            {
+                "name": "Stop",
+                "from": "*",
+                "to": "Running"
+            },
+            {
+                "name": "Start",
+                "from": "*",
+                "to": "Running"
+            }
+        ],
+        "x": 870,
+        "y": 600,
+        "wires": [
+            [
+                "de288acad18f3006"
+            ]
+        ]
+    },
+    {
+        "id": "31a9ebe1cba768f3",
+        "type": "change",
+        "z": "fbc7fe71e9da92df",
+        "name": "Has Power",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Power",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 560,
+        "wires": [
+            [
+                "a8bf928dfc668b8d"
+            ]
+        ]
+    },
+    {
+        "id": "cc1cf8f6953ccd17",
+        "type": "change",
+        "z": "fbc7fe71e9da92df",
+        "name": "No Power",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "NoPower",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 640,
+        "wires": [
+            [
+                "a8bf928dfc668b8d"
+            ]
+        ]
+    },
+    {
+        "id": "de288acad18f3006",
+        "type": "mqtt out",
+        "z": "fbc7fe71e9da92df",
+        "name": "BroadcastStateChange",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "",
+        "x": 1090,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "796b0bc487ca3b7f",
+        "type": "inject",
+        "z": "fbc7fe71e9da92df",
+        "name": "Specify Tag",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "ns=2;s=1:ZZZZ?Value",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 600,
+        "wires": [
+            [
+                "9477ea37ebbba7e6"
+            ]
+        ]
     },
     {
         "id": "c2a9053ab8596a11",
@@ -410,34 +618,6 @@
         "x": 640,
         "y": 140,
         "wires": [
-            []
-        ]
-    },
-    {
-        "id": "66dfc14b12961254",
-        "type": "OpcUa-Client",
-        "z": "491911e96b64cd26",
-        "endpoint": "",
-        "action": "read",
-        "deadbandtype": "a",
-        "deadbandvalue": 1,
-        "time": 10,
-        "timeUnit": "s",
-        "certificate": "n",
-        "localfile": "",
-        "localkeyfile": "",
-        "securitymode": "None",
-        "securitypolicy": "None",
-        "useTransport": false,
-        "maxChunkCount": 1,
-        "maxMessageSize": 8192,
-        "receiveBufferSize": 8192,
-        "sendBufferSize": 8192,
-        "name": "",
-        "x": 120,
-        "y": 100,
-        "wires": [
-            [],
             []
         ]
     }
