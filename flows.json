@@ -178,7 +178,7 @@
         "id": "53618f754e8a3eb5",
         "type": "OpcUa-Client",
         "z": "4c5d465447dabe08",
-        "endpoint": "85f80f334116bcb0",
+        "endpoint": "60ccb6176681d4ee",
         "action": "browse",
         "deadbandtype": "a",
         "deadbandvalue": 1,
