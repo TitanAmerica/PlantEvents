@@ -32,6 +32,45 @@
         "env": []
     },
     {
+        "id": "3e09b7a420dd81d2",
+        "type": "group",
+        "z": "f017d68592862539",
+        "name": "Browse Hierarchical Address Space Structure & Display on Dashboard",
+        "style": {
+            "label": true,
+            "stroke": "#a4a4a4",
+            "color": "#000000",
+            "fill": "#ffffff"
+        },
+        "nodes": [
+            "6b17b2da2b942bb4",
+            "61797eccf2785257",
+            "4d92d940177b6ee3",
+            "68a113d5893b7c01",
+            "98560994a7884f15",
+            "4dd13685c3c2879e",
+            "a29358cca5c1c12a",
+            "d0c969b6a59fac3a",
+            "639da01fc957e547",
+            "29437ca7222d9a64",
+            "49983d5da0958bf2",
+            "49040d0cf1144f0a",
+            "e7c55f412ef86543",
+            "7b53b798a025f1d8",
+            "71512a0d602095a0",
+            "9c3b0c36d69c05cf",
+            "de21b7ad98a05833",
+            "2d56e9a431c21a3b",
+            "ac95bd0e2b304eec",
+            "6fdabcc2950ccf4e",
+            "1c49fa5142d2cf17"
+        ],
+        "x": 54,
+        "y": 59,
+        "w": 1172,
+        "h": 422
+    },
+    {
         "id": "60ccb6176681d4ee",
         "type": "OpcUa-Endpoint",
         "endpoint": "opc.tcp://WINBOX1:4841/Matrikon.OPC.Simulation.1/",
@@ -77,6 +116,38 @@
         "validate": true,
         "vartable": [],
         "name": "MatrikonSimulator"
+    },
+    {
+        "id": "53f4394dbf12c6b7",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://192.168.0.141:53530/OPCUA/SimulationServer",
+        "secpol": "None",
+        "secmode": "None",
+        "none": true,
+        "login": false,
+        "usercert": false,
+        "usercertificate": "",
+        "userprivatekey": ""
+    },
+    {
+        "id": "4340b56a2335c304",
+        "type": "ui_group",
+        "name": "Address Space Structure",
+        "tab": "0113eb87060106be",
+        "order": 1,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0113eb87060106be",
+        "type": "ui_tab",
+        "name": "OPC UA",
+        "icon": "dashboard",
+        "order": 7,
+        "disabled": false,
+        "hidden": false
     },
     {
         "id": "d162885f5409ab52",
@@ -178,5 +249,532 @@
                 "19cb2dead81c6658"
             ]
         ]
+    },
+    {
+        "id": "6b17b2da2b942bb4",
+        "type": "OpcUa-Browser",
+        "z": "f017d68592862539",
+        "g": "3e09b7a420dd81d2",
+        "endpoint": "85f80f334116bcb0",
+        "item": "",
+        "datatype": "",
+        "topic": "",
+        "items": [],
+        "name": "OPC Client Namespace Browse",
+        "x": 510,
+        "y": 200,
+        "wires": [
+            [
+                "4d92d940177b6ee3",
+                "d0c969b6a59fac3a",
+                "639da01fc957e547"
+            ]
+        ]
+    },
+    {
+        "id": "61797eccf2785257",
+        "type": "inject",
+        "z": "f017d68592862539",
+        "g": "3e09b7a420dd81d2",
+        "name": "Get Base Folder Structure",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.3",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 200,
+        "wires": [
+            [
+                "6b17b2da2b942bb4"
+            ]
+        ]
+    },
+    {
+        "id": "4d92d940177b6ee3",
+        "type": "change",
+        "z": "f017d68592862539",
+        "g": "3e09b7a420dd81d2",
+        "name": "Simulation Folder",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Objects.Simulation.nodeId",
+                "pt": "flow",
+                "to": "payload[2].item.nodeId",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[2].item.browseName.name",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 140,
+        "wires": [
+            [
+                "98560994a7884f15"
+            ]
+        ]
+    },
+    {
+        "id": "68a113d5893b7c01",
+        "type": "comment",
+        "z": "f017d68592862539",
+        "g": "3e09b7a420dd81d2",
+        "name": "Display on Dashboard",
+        "info": "",
+        "x": 1100,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "98560994a7884f15",
+        "type": "ui_text",
+        "z": "f017d68592862539",
+        "g": "3e09b7a420dd81d2",
+        "group": "4340b56a2335c304",
+        "order": 1,
+        "width": 3,
+        "height": 1,
+        "name": "Simulation",
+        "label": "Namespace 3",
+        "format": " <i class=\"fa fa-folder\" aria-hidden=\"true\"></i>",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1070,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "4dd13685c3c2879e",
+        "type": "ui_text",
+        "z": "f017d68592862539",
+        "g": "3e09b7a420dd81d2",
+        "group": "4340b56a2335c304",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "name": "StaticData",
+        "label": "Namespace 5",
+        "format": " <i class=\"fa fa-folder\" aria-hidden=\"true\"></i> <i class=\"fa fa-sort-desc\" aria-hidden=\"true\"></i>",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1070,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "a29358cca5c1c12a",
+        "type": "ui_text",
+        "z": "f017d68592862539",
+        "g": "3e09b7a420dd81d2",
+        "group": "4340b56a2335c304",
+        "order": 9,
+        "width": 3,
+        "height": 1,
+        "name": "MyObjects",
+        "label": "Namespace 6",
+        "format": " <i class=\"fa fa-folder\" aria-hidden=\"true\"></i> <i class=\"fa fa-sort-desc\" aria-hidden=\"true\"></i>",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1070,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "d0c969b6a59fac3a",
+        "type": "change",
+        "z": "f017d68592862539",
+        "g": "3e09b7a420dd81d2",
+        "name": "MyObjects Folder",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Objects.MyObjects.nodeId",
+                "pt": "flow",
+                "to": "payload[4].item.nodeId",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[4].item.browseName.name",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 260,
+        "wires": [
+            [
+                "a29358cca5c1c12a"
+            ]
+        ]
+    },
+    {
+        "id": "639da01fc957e547",
+        "type": "change",
+        "z": "f017d68592862539",
+        "g": "3e09b7a420dd81d2",
+        "name": "StaticData Folder",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Objects.StaticData.nodeId",
+                "pt": "flow",
+                "to": "payload[3].item.nodeId",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[3].item.browseName.name",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 200,
+        "wires": [
+            [
+                "4dd13685c3c2879e"
+            ]
+        ]
+    },
+    {
+        "id": "29437ca7222d9a64",
+        "type": "OpcUa-Browser",
+        "z": "f017d68592862539",
+        "g": "3e09b7a420dd81d2",
+        "endpoint": "53f4394dbf12c6b7",
+        "item": "",
+        "datatype": "",
+        "topic": "",
+        "items": [],
+        "name": "OPC Client Namespace Browse",
+        "x": 510,
+        "y": 360,
+        "wires": [
+            [
+                "49040d0cf1144f0a",
+                "e7c55f412ef86543"
+            ]
+        ]
+    },
+    {
+        "id": "49983d5da0958bf2",
+        "type": "inject",
+        "z": "f017d68592862539",
+        "g": "3e09b7a420dd81d2",
+        "name": "Get StaticData Folder Structure",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "v": "Objects.StaticData.nodeId",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.3",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 360,
+        "wires": [
+            [
+                "29437ca7222d9a64"
+            ]
+        ]
+    },
+    {
+        "id": "49040d0cf1144f0a",
+        "type": "change",
+        "z": "f017d68592862539",
+        "g": "3e09b7a420dd81d2",
+        "name": "AnalogItemArrays Folder",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Objects.StaticData.AnalogItemArrays.nodeId",
+                "pt": "flow",
+                "to": "payload[1].item.nodeId",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[1].item.browseName.name",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 810,
+        "y": 380,
+        "wires": [
+            [
+                "7b53b798a025f1d8"
+            ]
+        ]
+    },
+    {
+        "id": "e7c55f412ef86543",
+        "type": "change",
+        "z": "f017d68592862539",
+        "g": "3e09b7a420dd81d2",
+        "name": "StaticArrayVariables Folder",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Objects.StaticData.StaticArrayVariables.nodeId",
+                "pt": "flow",
+                "to": "payload[6].item.nodeId",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[6].item.browseName.name",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 320,
+        "wires": [
+            [
+                "71512a0d602095a0"
+            ]
+        ]
+    },
+    {
+        "id": "7b53b798a025f1d8",
+        "type": "ui_text",
+        "z": "f017d68592862539",
+        "g": "3e09b7a420dd81d2",
+        "group": "4340b56a2335c304",
+        "order": 8,
+        "width": 4,
+        "height": 1,
+        "name": "AnalogItemArrays",
+        "label": "",
+        "format": "<i class=\"fa fa-folder\" aria-hidden=\"true\"></i>  ",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1090,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "71512a0d602095a0",
+        "type": "ui_text",
+        "z": "f017d68592862539",
+        "g": "3e09b7a420dd81d2",
+        "group": "4340b56a2335c304",
+        "order": 6,
+        "width": 4,
+        "height": 1,
+        "name": "StaticArrayVariables",
+        "label": "",
+        "format": " <i class=\"fa fa-folder\" aria-hidden=\"true\"></i> ",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1100,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "9c3b0c36d69c05cf",
+        "type": "ui_text",
+        "z": "f017d68592862539",
+        "g": "3e09b7a420dd81d2",
+        "group": "4340b56a2335c304",
+        "order": 12,
+        "width": 4,
+        "height": 1,
+        "name": "MyDevice",
+        "label": "",
+        "format": "<i class=\"fa fa-cube\" aria-hidden=\"true\"></i> ",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1060,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "de21b7ad98a05833",
+        "type": "change",
+        "z": "f017d68592862539",
+        "g": "3e09b7a420dd81d2",
+        "name": "MyDevice Object",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Objects.MyObjects.MyDevice.nodeId",
+                "pt": "flow",
+                "to": "payload[0].item.nodeId",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[0].item.browseName.name",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 440,
+        "wires": [
+            [
+                "9c3b0c36d69c05cf"
+            ]
+        ]
+    },
+    {
+        "id": "2d56e9a431c21a3b",
+        "type": "inject",
+        "z": "f017d68592862539",
+        "g": "3e09b7a420dd81d2",
+        "name": "Get MyObjects Object Structure",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "v": "Objects.MyObjects.nodeId",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.5",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 440,
+        "wires": [
+            [
+                "ac95bd0e2b304eec"
+            ]
+        ]
+    },
+    {
+        "id": "ac95bd0e2b304eec",
+        "type": "OpcUa-Browser",
+        "z": "f017d68592862539",
+        "g": "3e09b7a420dd81d2",
+        "endpoint": "53f4394dbf12c6b7",
+        "item": "",
+        "datatype": "",
+        "topic": "",
+        "items": [],
+        "name": "OPC Client Namespace Browse",
+        "x": 510,
+        "y": 440,
+        "wires": [
+            [
+                "de21b7ad98a05833"
+            ]
+        ]
+    },
+    {
+        "id": "6fdabcc2950ccf4e",
+        "type": "comment",
+        "z": "f017d68592862539",
+        "g": "3e09b7a420dd81d2",
+        "name": "Store & Parse nodeId & browseName",
+        "info": "",
+        "x": 810,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "1c49fa5142d2cf17",
+        "type": "comment",
+        "z": "f017d68592862539",
+        "g": "3e09b7a420dd81d2",
+        "name": "Global Address Space Folder Browse",
+        "info": "",
+        "x": 390,
+        "y": 160,
+        "wires": []
     }
 ]
