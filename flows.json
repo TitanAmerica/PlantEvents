@@ -213,16 +213,27 @@
         "triggerPropertyType": "msg",
         "stateProperty": "payload",
         "statePropertyType": "msg",
-        "outputStateChangeOnly": false,
+        "outputStateChangeOnly": true,
         "throwException": false,
         "states": [
-            "Running",
             "Stopped",
+            "Running",
             "Cooldown",
             "Preheat",
             "Slow Turn"
         ],
-        "transitions": [],
+        "transitions": [
+            {
+                "name": "Stop",
+                "from": "*",
+                "to": "Running"
+            },
+            {
+                "name": "Start",
+                "from": "*",
+                "to": "Running"
+            }
+        ],
         "x": 850,
         "y": 160,
         "wires": [
@@ -293,8 +304,8 @@
         "interval": "10",
         "intervalUnits": "seconds",
         "name": "",
-        "x": 720,
-        "y": 320,
+        "x": 500,
+        "y": 360,
         "wires": [
             []
         ]
@@ -316,7 +327,7 @@
         "name": "Running Totals",
         "info": "",
         "x": 100,
-        "y": 300,
+        "y": 320,
         "wires": []
     },
     {
