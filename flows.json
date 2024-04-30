@@ -1,37 +1,5 @@
 [
     {
-        "id": "a3fc98f005fbb17c",
-        "type": "tab",
-        "label": "OPC Connectivity",
-        "disabled": false,
-        "info": "This tab establishes connectivity with the OPC server(s)",
-        "env": []
-    },
-    {
-        "id": "4c5d465447dabe08",
-        "type": "tab",
-        "label": "Kiln",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "7a1c78c10cc94f14",
-        "type": "tab",
-        "label": "FM10",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "f017d68592862539",
-        "type": "tab",
-        "label": "FM11",
-        "disabled": false,
-        "info": "https://flowfuse.com/blog/2023/07/how-to-build-a-opc-client-dashboard-in-node-red/\r\n",
-        "env": []
-    },
-    {
         "id": "8fba20fe3c7a5b1f",
         "type": "tab",
         "label": "Flow 1",
@@ -161,36 +129,9 @@
         "className": ""
     },
     {
-        "id": "db287430f437bd47",
-        "type": "comment",
-        "z": "4c5d465447dabe08",
-        "name": "Start / Stop Events",
-        "info": "",
-        "x": 110,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "19cb2dead81c6658",
-        "type": "debug",
-        "z": "4c5d465447dabe08",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 660,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "f7086ce2a820f4e1",
+        "id": "2be34e463b8ba255",
         "type": "inject",
-        "z": "4c5d465447dabe08",
+        "z": "8fba20fe3c7a5b1f",
         "name": "",
         "props": [
             {
@@ -209,62 +150,16 @@
         "payload": "",
         "payloadType": "date",
         "x": 180,
-        "y": 160,
+        "y": 80,
         "wires": [
             []
         ]
     },
     {
-        "id": "d07d04ab6deacc4b",
-        "type": "opc-da in",
-        "z": "4c5d465447dabe08",
-        "group": "0f2e298473180940",
-        "mode": "all",
-        "diff": true,
-        "name": "",
-        "item": "",
-        "x": 410,
-        "y": 220,
-        "wires": [
-            [
-                "19cb2dead81c6658"
-            ]
-        ]
-    },
-    {
-        "id": "20e5ee8a6b3e5f88",
-        "type": "inject",
-        "z": "8fba20fe3c7a5b1f",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 280,
-        "y": 60,
-        "wires": [
-            [
-                "f276341675a37438"
-            ]
-        ]
-    },
-    {
-        "id": "f276341675a37438",
+        "id": "28c58542a12449b0",
         "type": "debug",
         "z": "8fba20fe3c7a5b1f",
-        "name": "debug 3",
+        "name": "debug 1",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -272,8 +167,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 500,
-        "y": 60,
+        "x": 440,
+        "y": 80,
         "wires": []
     }
 ]
