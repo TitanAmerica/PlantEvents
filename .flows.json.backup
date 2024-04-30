@@ -98,6 +98,63 @@
         "disabled": false
     },
     {
+        "id": "6df472a743c0623a",
+        "type": "OpcUa-Client",
+        "z": "fbc7fe71e9da92df",
+        "endpoint": "",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
+        "name": "",
+        "x": 340,
+        "y": 100,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "847899befdb7d549",
+        "type": "inject",
+        "z": "fbc7fe71e9da92df",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "6df472a743c0623a"
+            ]
+        ]
+    },
+    {
         "id": "c2a9053ab8596a11",
         "type": "ui-table",
         "z": "8fba20fe3c7a5b1f",
@@ -170,6 +227,34 @@
         "x": 640,
         "y": 140,
         "wires": [
+            []
+        ]
+    },
+    {
+        "id": "66dfc14b12961254",
+        "type": "OpcUa-Client",
+        "z": "491911e96b64cd26",
+        "endpoint": "",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
+        "name": "",
+        "x": 120,
+        "y": 100,
+        "wires": [
+            [],
             []
         ]
     }
