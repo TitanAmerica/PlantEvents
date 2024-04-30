@@ -416,10 +416,7 @@
         "throwException": false,
         "states": [
             "Stopped",
-            "Running",
-            "Cooldown",
-            "Preheat",
-            "Slow Turn"
+            "Running"
         ],
         "transitions": [
             {
@@ -862,10 +859,7 @@
         "throwException": false,
         "states": [
             "Stopped",
-            "Running",
-            "Cooldown",
-            "Preheat",
-            "Slow Turn"
+            "Running"
         ],
         "transitions": [
             {
@@ -1090,10 +1084,7 @@
         "throwException": false,
         "states": [
             "Stopped",
-            "Running",
-            "Cooldown",
-            "Preheat",
-            "Slow Turn"
+            "Running"
         ],
         "transitions": [
             {
