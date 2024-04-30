@@ -122,8 +122,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 720,
-        "y": 240,
+        "x": 620,
+        "y": 100,
         "wires": []
     },
     {
@@ -165,8 +165,8 @@
         "topic": "",
         "items": [],
         "name": "opcuaserver.com",
-        "x": 170,
-        "y": 120,
+        "x": 410,
+        "y": 100,
         "wires": [
             [
                 "19cb2dead81c6658"
