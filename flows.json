@@ -90,10 +90,22 @@
         "disabled": false
     },
     {
+        "id": "0aa3aba3e786d7a7",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://ecs4375svr01:26080/UA/FlsOpcServer",
+        "secpol": "None",
+        "secmode": "None",
+        "none": true,
+        "login": false,
+        "usercert": false,
+        "usercertificate": "",
+        "userprivatekey": ""
+    },
+    {
         "id": "6df472a743c0623a",
         "type": "OpcUa-Client",
         "z": "fbc7fe71e9da92df",
-        "endpoint": "",
+        "endpoint": "0aa3aba3e786d7a7",
         "action": "read",
         "deadbandtype": "a",
         "deadbandvalue": 1,
@@ -109,8 +121,8 @@
         "maxMessageSize": 8192,
         "receiveBufferSize": 8192,
         "sendBufferSize": 8192,
-        "name": "",
-        "x": 300,
+        "name": "ECS4375SVR01",
+        "x": 310,
         "y": 160,
         "wires": [
             [
@@ -162,7 +174,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 480,
+        "x": 520,
         "y": 100,
         "wires": []
     },
@@ -186,7 +198,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 480,
+        "x": 520,
         "y": 160,
         "wires": [
             [
@@ -224,7 +236,7 @@
                 "to": "Running"
             }
         ],
-        "x": 870,
+        "x": 910,
         "y": 160,
         "wires": [
             [
@@ -251,7 +263,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 670,
+        "x": 710,
         "y": 120,
         "wires": [
             [
@@ -278,7 +290,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 660,
+        "x": 700,
         "y": 200,
         "wires": [
             [
@@ -310,7 +322,7 @@
         "correl": "",
         "expiry": "",
         "broker": "",
-        "x": 1090,
+        "x": 1130,
         "y": 160,
         "wires": []
     },
@@ -328,7 +340,7 @@
         "id": "9477ea37ebbba7e6",
         "type": "OpcUa-Client",
         "z": "fbc7fe71e9da92df",
-        "endpoint": "",
+        "endpoint": "0aa3aba3e786d7a7",
         "action": "read",
         "deadbandtype": "a",
         "deadbandvalue": 1,
@@ -344,8 +356,8 @@
         "maxMessageSize": 8192,
         "receiveBufferSize": 8192,
         "sendBufferSize": 8192,
-        "name": "",
-        "x": 300,
+        "name": "ECS4375SVR01",
+        "x": 310,
         "y": 600,
         "wires": [
             [
@@ -368,7 +380,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 480,
+        "x": 520,
         "y": 540,
         "wires": []
     },
@@ -392,7 +404,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 480,
+        "x": 520,
         "y": 600,
         "wires": [
             [
@@ -430,7 +442,7 @@
                 "to": "Running"
             }
         ],
-        "x": 870,
+        "x": 910,
         "y": 600,
         "wires": [
             [
@@ -457,7 +469,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 670,
+        "x": 710,
         "y": 560,
         "wires": [
             [
@@ -484,7 +496,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 660,
+        "x": 700,
         "y": 640,
         "wires": [
             [
@@ -506,7 +518,7 @@
         "correl": "",
         "expiry": "",
         "broker": "",
-        "x": 1090,
+        "x": 1130,
         "y": 600,
         "wires": []
     },
@@ -543,7 +555,7 @@
         "id": "e81c3e192e92ab37",
         "type": "OpcUa-Client",
         "z": "8fba20fe3c7a5b1f",
-        "endpoint": "",
+        "endpoint": "0aa3aba3e786d7a7",
         "action": "read",
         "deadbandtype": "a",
         "deadbandvalue": 1,
@@ -559,8 +571,8 @@
         "maxMessageSize": 8192,
         "receiveBufferSize": 8192,
         "sendBufferSize": 8192,
-        "name": "",
-        "x": 340,
+        "name": "ECS4375SVR01",
+        "x": 350,
         "y": 180,
         "wires": [
             [
@@ -761,7 +773,7 @@
         "id": "ebfd8722e5ec5651",
         "type": "OpcUa-Client",
         "z": "8fba20fe3c7a5b1f",
-        "endpoint": "",
+        "endpoint": "0aa3aba3e786d7a7",
         "action": "read",
         "deadbandtype": "a",
         "deadbandvalue": 1,
@@ -777,8 +789,8 @@
         "maxMessageSize": 8192,
         "receiveBufferSize": 8192,
         "sendBufferSize": 8192,
-        "name": "",
-        "x": 340,
+        "name": "ECS4375SVR01",
+        "x": 350,
         "y": 380,
         "wires": [
             [],
@@ -818,7 +830,7 @@
         "id": "ab5479c4c3f9b7a2",
         "type": "OpcUa-Client",
         "z": "8fba20fe3c7a5b1f",
-        "endpoint": "",
+        "endpoint": "0aa3aba3e786d7a7",
         "action": "read",
         "deadbandtype": "a",
         "deadbandvalue": 1,
@@ -834,8 +846,8 @@
         "maxMessageSize": 8192,
         "receiveBufferSize": 8192,
         "sendBufferSize": 8192,
-        "name": "",
-        "x": 340,
+        "name": "ECS4375SVR01",
+        "x": 350,
         "y": 540,
         "wires": [
             [],
@@ -915,7 +927,7 @@
         "id": "e623609ba3445cca",
         "type": "OpcUa-Client",
         "z": "486a780d98a6d614",
-        "endpoint": "",
+        "endpoint": "0aa3aba3e786d7a7",
         "action": "read",
         "deadbandtype": "a",
         "deadbandvalue": 1,
@@ -931,8 +943,8 @@
         "maxMessageSize": 8192,
         "receiveBufferSize": 8192,
         "sendBufferSize": 8192,
-        "name": "",
-        "x": 340,
+        "name": "ECS4375SVR01",
+        "x": 350,
         "y": 140,
         "wires": [
             [
@@ -1140,7 +1152,7 @@
         "id": "efb4787492b78889",
         "type": "OpcUa-Client",
         "z": "486a780d98a6d614",
-        "endpoint": "",
+        "endpoint": "0aa3aba3e786d7a7",
         "action": "read",
         "deadbandtype": "a",
         "deadbandvalue": 1,
@@ -1156,8 +1168,8 @@
         "maxMessageSize": 8192,
         "receiveBufferSize": 8192,
         "sendBufferSize": 8192,
-        "name": "",
-        "x": 340,
+        "name": "ECS4375SVR01",
+        "x": 350,
         "y": 420,
         "wires": [
             [
