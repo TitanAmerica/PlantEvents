@@ -179,7 +179,7 @@
         "type": "OpcUa-Client",
         "z": "4c5d465447dabe08",
         "endpoint": "60ccb6176681d4ee",
-        "action": "browse",
+        "action": "info",
         "deadbandtype": "a",
         "deadbandvalue": 1,
         "time": 10,
@@ -195,8 +195,8 @@
         "receiveBufferSize": 8192,
         "sendBufferSize": 8192,
         "name": "",
-        "x": 320,
-        "y": 360,
+        "x": 420,
+        "y": 340,
         "wires": [
             [
                 "19cb2dead81c6658"
