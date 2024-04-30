@@ -183,7 +183,7 @@
         "deadbandvalue": 1,
         "time": 10,
         "timeUnit": "s",
-        "certificate": "n",
+        "certificate": "l",
         "localfile": "",
         "localkeyfile": "",
         "securitymode": "None",
