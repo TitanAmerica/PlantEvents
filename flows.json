@@ -162,7 +162,7 @@
         "endpoint": "85f80f334116bcb0",
         "item": "",
         "datatype": "",
-        "topic": "",
+        "topic": "Root",
         "items": [],
         "name": "opcuaserver.com",
         "x": 410,
