@@ -208,37 +208,22 @@
         "id": "1ab53fc596cc3fc9",
         "type": "state-machine",
         "z": "fbc7fe71e9da92df",
-        "name": "",
-        "triggerProperty": "topic",
+        "name": "Status",
+        "triggerProperty": "payload",
         "triggerPropertyType": "msg",
-        "stateProperty": "topic",
+        "stateProperty": "payload",
         "statePropertyType": "msg",
         "outputStateChangeOnly": false,
         "throwException": false,
         "states": [
-            "start",
-            "",
-            "",
-            ""
+            "Running",
+            "Stopped",
+            "Cooldown",
+            "Preheat",
+            "Slow Turn"
         ],
-        "transitions": [
-            {
-                "name": "",
-                "from": "",
-                "to": ""
-            },
-            {
-                "name": "",
-                "from": "",
-                "to": ""
-            },
-            {
-                "name": "",
-                "from": "",
-                "to": ""
-            }
-        ],
-        "x": 880,
+        "transitions": [],
+        "x": 850,
         "y": 160,
         "wires": [
             []
