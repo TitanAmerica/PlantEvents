@@ -4,7 +4,8 @@
     "version": "0.0.1",
     "dependencies": {
         "node-red-contrib-opcua": "0.2.323",
-        "@flowfuse/node-red-dashboard": "1.8.1"
+        "@flowfuse/node-red-dashboard": "1.8.1",
+        "node-red-contrib-state-machine": "1.2.0"
     },
     "node-red": {
         "settings": {
