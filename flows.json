@@ -56,6 +56,29 @@
         "userprivatekey": ""
     },
     {
+        "id": "2e06b2c80cb9ead0",
+        "type": "opc-da server",
+        "address": "192.168.1.125",
+        "domain": "markham.lan",
+        "progid": "F8582CF2-88FB-11D0-B850-00C0F0104305",
+        "clsid": "F8582CF2-88FB-11D0-B850-00C0F0104305",
+        "verbose": "default",
+        "name": "Matrikon OPC Simulation",
+        "vartable": [],
+        "timeout": "5000"
+    },
+    {
+        "id": "0f2e298473180940",
+        "type": "opc-da group",
+        "server": "2e06b2c80cb9ead0",
+        "updaterate": "1000",
+        "deadband": "0",
+        "active": true,
+        "validate": true,
+        "vartable": [],
+        "name": "MatrikonSimulator"
+    },
+    {
         "id": "d162885f5409ab52",
         "type": "OpcUa-Discovery",
         "z": "a3fc98f005fbb17c",
@@ -108,8 +131,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 680,
-        "y": 200,
+        "x": 660,
+        "y": 180,
         "wires": []
     },
     {
@@ -136,86 +159,24 @@
         "x": 180,
         "y": 160,
         "wires": [
-            [
-                "8d1a13fe578d2b9b",
-                "53618f754e8a3eb5"
-            ]
+            []
         ]
     },
     {
-        "id": "8d1a13fe578d2b9b",
-        "type": "OpcUa-Browser",
+        "id": "d07d04ab6deacc4b",
+        "type": "opc-da in",
         "z": "4c5d465447dabe08",
-        "endpoint": "60ccb6176681d4ee",
+        "group": "0f2e298473180940",
+        "mode": "all-split",
+        "diff": true,
+        "name": "",
         "item": "",
-        "datatype": "",
-        "topic": "Root",
-        "items": [],
-        "name": "opcuaserver.com",
-        "x": 410,
-        "y": 100,
+        "x": 350,
+        "y": 240,
         "wires": [
             [
                 "19cb2dead81c6658"
             ]
-        ]
-    },
-    {
-        "id": "53618f754e8a3eb5",
-        "type": "OpcUa-Client",
-        "z": "4c5d465447dabe08",
-        "endpoint": "60ccb6176681d4ee",
-        "action": "browse",
-        "deadbandtype": "a",
-        "deadbandvalue": 1,
-        "time": 10,
-        "timeUnit": "s",
-        "certificate": "n",
-        "localfile": "",
-        "localkeyfile": "",
-        "securitymode": "None",
-        "securitypolicy": "None",
-        "useTransport": true,
-        "maxChunkCount": 1,
-        "maxMessageSize": 8192,
-        "receiveBufferSize": 8192,
-        "sendBufferSize": 8192,
-        "name": "",
-        "x": 400,
-        "y": 220,
-        "wires": [
-            [
-                "19cb2dead81c6658"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "25b063de7cf4b259",
-        "type": "OpcUa-Client",
-        "z": "4c5d465447dabe08",
-        "endpoint": "",
-        "action": "read",
-        "deadbandtype": "a",
-        "deadbandvalue": 1,
-        "time": 10,
-        "timeUnit": "s",
-        "certificate": "n",
-        "localfile": "",
-        "localkeyfile": "",
-        "securitymode": "None",
-        "securitypolicy": "None",
-        "useTransport": false,
-        "maxChunkCount": 1,
-        "maxMessageSize": 8192,
-        "receiveBufferSize": 8192,
-        "sendBufferSize": 8192,
-        "name": "",
-        "x": 340,
-        "y": 480,
-        "wires": [
-            [],
-            []
         ]
     }
 ]
