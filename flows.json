@@ -34,7 +34,7 @@
     {
         "id": "60ccb6176681d4ee",
         "type": "OpcUa-Endpoint",
-        "endpoint": "opc.tcp://WINBOX1:4841/Matrikon.OPC.Simulation.1",
+        "endpoint": "opc.tcp://WINBOX1:4841/Matrikon.OPC.Simulation.1/",
         "secpol": "None",
         "secmode": "None",
         "none": false,
