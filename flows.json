@@ -81,12 +81,10 @@
         "datatype": "Int64",
         "value": "",
         "name": "PyroProcess.Kiln_Feed_Rate",
-        "x": 310,
+        "x": 350,
         "y": 240,
         "wires": [
-            [
-                "19cb2dead81c6658"
-            ]
+            []
         ]
     },
     {
@@ -112,7 +110,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
+        "x": 720,
         "y": 240,
         "wires": []
     },
@@ -142,6 +140,24 @@
         "wires": [
             [
                 "108a619e05f113be"
+            ]
+        ]
+    },
+    {
+        "id": "8d1a13fe578d2b9b",
+        "type": "OpcUa-Browser",
+        "z": "4c5d465447dabe08",
+        "endpoint": "60ccb6176681d4ee",
+        "item": "",
+        "datatype": "",
+        "topic": "",
+        "items": [],
+        "name": "",
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "19cb2dead81c6658"
             ]
         ]
     }
