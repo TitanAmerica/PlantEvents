@@ -24,6 +24,22 @@
         "env": []
     },
     {
+        "id": "486a780d98a6d614",
+        "type": "tab",
+        "label": "Finish Mill 10",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "491911e96b64cd26",
+        "type": "tab",
+        "label": "Finish Mill 11",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "6ed74151d0417356",
         "type": "ui-base",
         "name": "My Dashboard",
