@@ -32,6 +32,14 @@
         "env": []
     },
     {
+        "id": "8fba20fe3c7a5b1f",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "3e09b7a420dd81d2",
         "type": "group",
         "z": "f017d68592862539",
@@ -69,6 +77,99 @@
         "y": 59,
         "w": 1172,
         "h": 422
+    },
+    {
+        "id": "71c3401f2f3098c9",
+        "type": "group",
+        "z": "f017d68592862539",
+        "name": "Read Simulation Values & Display on Dashboard",
+        "style": {
+            "stroke": "#a4a4a4",
+            "label": true,
+            "color": "#001f60",
+            "fill": "#ffffff"
+        },
+        "nodes": [
+            "97d68fc707a17d29",
+            "7c17cdd7f7b85e60",
+            "105b486f960f58da",
+            "20a94de5a98255a1",
+            "4c4fc3b19cf4c9bd",
+            "8e615a369c6c9f52",
+            "e174d00f56d83c40",
+            "5cb66be83e4875d9",
+            "907c9b1663b0f330",
+            "e589e85b99208336",
+            "f1e19474f73d08c6",
+            "d5549447425184ea",
+            "331a126bea5eb7bb",
+            "3fa9b544146bc933",
+            "c17ea5e1485de9d5"
+        ],
+        "x": 54,
+        "y": 559,
+        "w": 1372,
+        "h": 302
+    },
+    {
+        "id": "059546b87e4ca2b6",
+        "type": "group",
+        "z": "f017d68592862539",
+        "name": "Read StaticData Values & Display on Dashboard",
+        "style": {
+            "stroke": "#a4a4a4",
+            "label": true,
+            "color": "#000000",
+            "fill": "#ffffff"
+        },
+        "nodes": [
+            "19b84d3a7862b457",
+            "c86d76af9e7c0952",
+            "71459dc057386017",
+            "11dc871b04c6a15d",
+            "9eb5bad3a745a0cb",
+            "5601f9c347e85759",
+            "cb780c1e0b15f5fc",
+            "0cd96d48418b6ae1",
+            "866c573e41277ea2",
+            "71667017b71c5913",
+            "a9945eb971060d56",
+            "46e4012480a18da8",
+            "f570824531afdd75",
+            "e1c958c67c39f9db"
+        ],
+        "x": 54,
+        "y": 899,
+        "w": 1372,
+        "h": 202
+    },
+    {
+        "id": "072640593b16535a",
+        "type": "group",
+        "z": "f017d68592862539",
+        "name": "Read MyDevice Values & Display on Dashboard",
+        "style": {
+            "label": true,
+            "color": "#000000",
+            "fill": "#ffffff"
+        },
+        "nodes": [
+            "fa27d2daa68fb35c",
+            "c3fc749a5122a316",
+            "271d4a0def3e3149",
+            "1ecaede97af6fe9c",
+            "aa41c5a90152d996",
+            "53a8b4872cd62761",
+            "334669777048d650",
+            "a086314b517c40c9",
+            "f6163a16ede90fea",
+            "3d70034b9a284336",
+            "b0ce0c2c9f0f6c35"
+        ],
+        "x": 54,
+        "y": 1139,
+        "w": 1292,
+        "h": 182
     },
     {
         "id": "60ccb6176681d4ee",
@@ -148,6 +249,48 @@
         "order": 7,
         "disabled": false,
         "hidden": false
+    },
+    {
+        "id": "bf75c424082f0475",
+        "type": "ui_group",
+        "name": "Simulation Values",
+        "tab": "0113eb87060106be",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "8d5776a092fd9736",
+        "type": "ui_tab",
+        "name": "OPC UA",
+        "icon": "dashboard",
+        "order": 7,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "664a782c4eacbafa",
+        "type": "ui_group",
+        "name": "StaticData Values",
+        "tab": "0113eb87060106be",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "eaaa1e5bd3b018d8",
+        "type": "ui_group",
+        "name": "MyDevice Status & Control",
+        "tab": "0113eb87060106be",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "d162885f5409ab52",
@@ -331,9 +474,7 @@
         "x": 790,
         "y": 140,
         "wires": [
-            [
-                "98560994a7884f15"
-            ]
+            []
         ]
     },
     {
@@ -775,6 +916,953 @@
         "info": "",
         "x": 390,
         "y": 160,
+        "wires": []
+    },
+    {
+        "id": "97d68fc707a17d29",
+        "type": "OpcUa-Browser",
+        "z": "f017d68592862539",
+        "g": "71c3401f2f3098c9",
+        "endpoint": "53f4394dbf12c6b7",
+        "item": "",
+        "datatype": "",
+        "topic": "",
+        "items": [],
+        "name": "OPC Client Namespace Browse",
+        "x": 530,
+        "y": 720,
+        "wires": [
+            [
+                "8e615a369c6c9f52"
+            ]
+        ]
+    },
+    {
+        "id": "7c17cdd7f7b85e60",
+        "type": "inject",
+        "z": "f017d68592862539",
+        "g": "71c3401f2f3098c9",
+        "name": "Update Simulation Values @ 1 second",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "v": "Objects.Simulation.nodeId",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 720,
+        "wires": [
+            [
+                "97d68fc707a17d29"
+            ]
+        ]
+    },
+    {
+        "id": "105b486f960f58da",
+        "type": "comment",
+        "z": "f017d68592862539",
+        "g": "71c3401f2f3098c9",
+        "name": "Read Simulation Values",
+        "info": "",
+        "x": 420,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "20a94de5a98255a1",
+        "type": "change",
+        "z": "f017d68592862539",
+        "g": "71c3401f2f3098c9",
+        "name": "Get Counter Value",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[1].item.value",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1030,
+        "y": 640,
+        "wires": [
+            [
+                "4c4fc3b19cf4c9bd"
+            ]
+        ]
+    },
+    {
+        "id": "4c4fc3b19cf4c9bd",
+        "type": "ui_gauge",
+        "z": "f017d68592862539",
+        "g": "ab8e5ebe8c14819d",
+        "name": "",
+        "group": "825fe3323bd36ae6",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "gtype": "gage",
+        "title": "Counter",
+        "label": "units",
+        "format": "",
+        "min": 0,
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1280,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "8e615a369c6c9f52",
+        "type": "switch",
+        "z": "f017d68592862539",
+        "g": "71c3401f2f3098c9",
+        "name": "empty check",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 750,
+        "y": 720,
+        "wires": [
+            [
+                "20a94de5a98255a1",
+                "e174d00f56d83c40",
+                "907c9b1663b0f330",
+                "f1e19474f73d08c6"
+            ]
+        ]
+    },
+    {
+        "id": "e174d00f56d83c40",
+        "type": "change",
+        "z": "f017d68592862539",
+        "g": "71c3401f2f3098c9",
+        "name": "Get Random Number Value",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[2].item.value",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 700,
+        "wires": [
+            [
+                "5cb66be83e4875d9"
+            ]
+        ]
+    },
+    {
+        "id": "5cb66be83e4875d9",
+        "type": "ui_text",
+        "z": "f017d68592862539",
+        "g": "ab8e5ebe8c14819d",
+        "group": "825fe3323bd36ae6",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Random Number",
+        "format": "",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1310,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "907c9b1663b0f330",
+        "type": "change",
+        "z": "f017d68592862539",
+        "g": "71c3401f2f3098c9",
+        "name": "Get Sawtooth Value",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[3].item.value",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1040,
+        "y": 760,
+        "wires": [
+            [
+                "e589e85b99208336"
+            ]
+        ]
+    },
+    {
+        "id": "e589e85b99208336",
+        "type": "ui_chart",
+        "z": "f017d68592862539",
+        "g": "ab8e5ebe8c14819d",
+        "name": "",
+        "group": "825fe3323bd36ae6",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "label": "Sawtooth",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1280,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1e19474f73d08c6",
+        "type": "change",
+        "z": "f017d68592862539",
+        "g": "71c3401f2f3098c9",
+        "name": "Get Sawtooth Value",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[4].item.value",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1040,
+        "y": 820,
+        "wires": [
+            [
+                "d5549447425184ea"
+            ]
+        ]
+    },
+    {
+        "id": "d5549447425184ea",
+        "type": "ui_chart",
+        "z": "f017d68592862539",
+        "g": "ab8e5ebe8c14819d",
+        "name": "",
+        "group": "825fe3323bd36ae6",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "label": "Sinusoid",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1280,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "331a126bea5eb7bb",
+        "type": "comment",
+        "z": "f017d68592862539",
+        "g": "71c3401f2f3098c9",
+        "name": "Discard Empty Datasets",
+        "info": "",
+        "x": 740,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "3fa9b544146bc933",
+        "type": "comment",
+        "z": "f017d68592862539",
+        "g": "71c3401f2f3098c9",
+        "name": "Parse Simulation Values",
+        "info": "",
+        "x": 1030,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "c17ea5e1485de9d5",
+        "type": "comment",
+        "z": "f017d68592862539",
+        "g": "71c3401f2f3098c9",
+        "name": "Display on Dashboard",
+        "info": "",
+        "x": 1300,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "19b84d3a7862b457",
+        "type": "OpcUa-Browser",
+        "z": "f017d68592862539",
+        "g": "059546b87e4ca2b6",
+        "endpoint": "53f4394dbf12c6b7",
+        "item": "",
+        "datatype": "",
+        "topic": "",
+        "items": [],
+        "name": "OPC Client Namespace Browse",
+        "x": 590,
+        "y": 980,
+        "wires": [
+            [
+                "9eb5bad3a745a0cb"
+            ]
+        ]
+    },
+    {
+        "id": "c86d76af9e7c0952",
+        "type": "inject",
+        "z": "f017d68592862539",
+        "g": "059546b87e4ca2b6",
+        "name": "Update AnalogItemArrays Values @ 1 second",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "v": "Objects.StaticData.AnalogItemArrays.nodeId",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 980,
+        "wires": [
+            [
+                "19b84d3a7862b457"
+            ]
+        ]
+    },
+    {
+        "id": "71459dc057386017",
+        "type": "comment",
+        "z": "f017d68592862539",
+        "g": "059546b87e4ca2b6",
+        "name": "Read StaticData Values",
+        "info": "",
+        "x": 480,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "11dc871b04c6a15d",
+        "type": "change",
+        "z": "f017d68592862539",
+        "g": "059546b87e4ca2b6",
+        "name": "Get ByteAnalogItemArray Value",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[0].item.value",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1030,
+        "y": 980,
+        "wires": [
+            [
+                "5601f9c347e85759"
+            ]
+        ]
+    },
+    {
+        "id": "9eb5bad3a745a0cb",
+        "type": "switch",
+        "z": "f017d68592862539",
+        "g": "059546b87e4ca2b6",
+        "name": "empty check",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 790,
+        "y": 980,
+        "wires": [
+            [
+                "11dc871b04c6a15d"
+            ]
+        ]
+    },
+    {
+        "id": "5601f9c347e85759",
+        "type": "ui_text",
+        "z": "f017d68592862539",
+        "g": "23696c742b062ee0",
+        "group": "92444e82445bab62",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "ByteAnalogItemArray",
+        "format": "",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1300,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "cb780c1e0b15f5fc",
+        "type": "OpcUa-Browser",
+        "z": "f017d68592862539",
+        "g": "059546b87e4ca2b6",
+        "endpoint": "53f4394dbf12c6b7",
+        "item": "",
+        "datatype": "",
+        "topic": "",
+        "items": [],
+        "name": "OPC Client Namespace Browse",
+        "x": 590,
+        "y": 1060,
+        "wires": [
+            [
+                "71667017b71c5913"
+            ]
+        ]
+    },
+    {
+        "id": "0cd96d48418b6ae1",
+        "type": "inject",
+        "z": "f017d68592862539",
+        "g": "059546b87e4ca2b6",
+        "name": "Update StaticArrayVariables Values @1 second",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "v": "Objects.StaticData.StaticArrayVariables.nodeId",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 1060,
+        "wires": [
+            [
+                "cb780c1e0b15f5fc"
+            ]
+        ]
+    },
+    {
+        "id": "866c573e41277ea2",
+        "type": "change",
+        "z": "f017d68592862539",
+        "g": "059546b87e4ca2b6",
+        "name": "Get BooleanArray Value",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[0].item.value",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1010,
+        "y": 1060,
+        "wires": [
+            [
+                "a9945eb971060d56"
+            ]
+        ]
+    },
+    {
+        "id": "71667017b71c5913",
+        "type": "switch",
+        "z": "f017d68592862539",
+        "g": "059546b87e4ca2b6",
+        "name": "empty check",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 790,
+        "y": 1060,
+        "wires": [
+            [
+                "866c573e41277ea2"
+            ]
+        ]
+    },
+    {
+        "id": "a9945eb971060d56",
+        "type": "ui_text",
+        "z": "f017d68592862539",
+        "g": "23696c742b062ee0",
+        "group": "92444e82445bab62",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "BooleanArray",
+        "format": "",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1280,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "46e4012480a18da8",
+        "type": "comment",
+        "z": "f017d68592862539",
+        "g": "059546b87e4ca2b6",
+        "name": "Discard Empty Datasets",
+        "info": "",
+        "x": 780,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "f570824531afdd75",
+        "type": "comment",
+        "z": "f017d68592862539",
+        "g": "059546b87e4ca2b6",
+        "name": "Parse StaticData Values",
+        "info": "",
+        "x": 1030,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "e1c958c67c39f9db",
+        "type": "comment",
+        "z": "f017d68592862539",
+        "g": "059546b87e4ca2b6",
+        "name": "Display on Dashboard",
+        "info": "",
+        "x": 1300,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "fa27d2daa68fb35c",
+        "type": "OpcUa-Browser",
+        "z": "f017d68592862539",
+        "g": "072640593b16535a",
+        "endpoint": "53f4394dbf12c6b7",
+        "item": "",
+        "datatype": "",
+        "topic": "",
+        "items": [],
+        "name": "OPC Client Namespace Browse",
+        "x": 550,
+        "y": 1240,
+        "wires": [
+            [
+                "aa41c5a90152d996"
+            ]
+        ]
+    },
+    {
+        "id": "c3fc749a5122a316",
+        "type": "inject",
+        "z": "f017d68592862539",
+        "g": "072640593b16535a",
+        "name": "Read MyDevice Values @ 1 second",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "v": "Objects.MyObjects.MyDevice.nodeId",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 250,
+        "y": 1240,
+        "wires": [
+            [
+                "fa27d2daa68fb35c"
+            ]
+        ]
+    },
+    {
+        "id": "271d4a0def3e3149",
+        "type": "comment",
+        "z": "f017d68592862539",
+        "g": "072640593b16535a",
+        "name": "Read MyDevice",
+        "info": "",
+        "x": 440,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "1ecaede97af6fe9c",
+        "type": "change",
+        "z": "f017d68592862539",
+        "g": "072640593b16535a",
+        "name": "Get MyLevel Value",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[0].item.value",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 990,
+        "y": 1220,
+        "wires": [
+            [
+                "334669777048d650"
+            ]
+        ]
+    },
+    {
+        "id": "aa41c5a90152d996",
+        "type": "switch",
+        "z": "f017d68592862539",
+        "g": "072640593b16535a",
+        "name": "empty check",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 770,
+        "y": 1240,
+        "wires": [
+            [
+                "1ecaede97af6fe9c",
+                "53a8b4872cd62761"
+            ]
+        ]
+    },
+    {
+        "id": "53a8b4872cd62761",
+        "type": "change",
+        "z": "f017d68592862539",
+        "g": "072640593b16535a",
+        "name": "Get MySwitch Value",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[4].item.value",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 1280,
+        "wires": [
+            [
+                "a086314b517c40c9"
+            ]
+        ]
+    },
+    {
+        "id": "334669777048d650",
+        "type": "ui_gauge",
+        "z": "f017d68592862539",
+        "g": "38f43e1ab70fe0cf",
+        "name": "",
+        "group": "b095aee62f84e514",
+        "order": 4,
+        "width": "0",
+        "height": "0",
+        "gtype": "wave",
+        "title": "MyLevel",
+        "label": "%",
+        "format": "",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1220,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "a086314b517c40c9",
+        "type": "ui_led",
+        "z": "f017d68592862539",
+        "g": "38f43e1ab70fe0cf",
+        "order": 2,
+        "group": "b095aee62f84e514",
+        "width": 0,
+        "height": 0,
+        "label": "MySwitch",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 1210,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "f6163a16ede90fea",
+        "type": "comment",
+        "z": "f017d68592862539",
+        "g": "072640593b16535a",
+        "name": "Display on Dashboard",
+        "info": "",
+        "x": 1220,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "3d70034b9a284336",
+        "type": "comment",
+        "z": "f017d68592862539",
+        "g": "072640593b16535a",
+        "name": "Parse MyDevice Values",
+        "info": "",
+        "x": 1000,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "b0ce0c2c9f0f6c35",
+        "type": "comment",
+        "z": "f017d68592862539",
+        "g": "072640593b16535a",
+        "name": "Discard Empty Datasets",
+        "info": "",
+        "x": 760,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "20e5ee8a6b3e5f88",
+        "type": "inject",
+        "z": "8fba20fe3c7a5b1f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 60,
+        "wires": [
+            [
+                "f276341675a37438"
+            ]
+        ]
+    },
+    {
+        "id": "f276341675a37438",
+        "type": "debug",
+        "z": "8fba20fe3c7a5b1f",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 60,
         "wires": []
     }
 ]
