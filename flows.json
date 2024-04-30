@@ -86,20 +86,6 @@
         "wires": []
     },
     {
-        "id": "108a619e05f113be",
-        "type": "OpcUa-Item",
-        "z": "4c5d465447dabe08",
-        "item": "PyroProcess.Kiln_Feed_Rate",
-        "datatype": "Int64",
-        "value": "",
-        "name": "PyroProcess.Kiln_Feed_Rate",
-        "x": 450,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "db287430f437bd47",
         "type": "comment",
         "z": "4c5d465447dabe08",
@@ -151,7 +137,6 @@
         "y": 160,
         "wires": [
             [
-                "108a619e05f113be",
                 "8d1a13fe578d2b9b",
                 "53618f754e8a3eb5"
             ]
@@ -170,7 +155,9 @@
         "x": 410,
         "y": 100,
         "wires": [
-            []
+            [
+                "19cb2dead81c6658"
+            ]
         ]
     },
     {
