@@ -201,7 +201,7 @@
         "id": "1ab53fc596cc3fc9",
         "type": "state-machine",
         "z": "fbc7fe71e9da92df",
-        "name": "Status",
+        "name": "RM1 Status",
         "triggerProperty": "payload",
         "triggerPropertyType": "msg",
         "stateProperty": "payload",
@@ -227,7 +227,7 @@
                 "to": "Running"
             }
         ],
-        "x": 850,
+        "x": 870,
         "y": 160,
         "wires": [
             [
@@ -313,7 +313,7 @@
         "correl": "",
         "expiry": "",
         "broker": "",
-        "x": 1070,
+        "x": 1090,
         "y": 160,
         "wires": []
     },
@@ -410,7 +410,7 @@
         "id": "a8bf928dfc668b8d",
         "type": "state-machine",
         "z": "fbc7fe71e9da92df",
-        "name": "Status",
+        "name": "RM2 Status",
         "triggerProperty": "payload",
         "triggerPropertyType": "msg",
         "stateProperty": "payload",
@@ -436,7 +436,7 @@
                 "to": "Running"
             }
         ],
-        "x": 850,
+        "x": 870,
         "y": 600,
         "wires": [
             [
@@ -512,7 +512,7 @@
         "correl": "",
         "expiry": "",
         "broker": "",
-        "x": 1070,
+        "x": 1090,
         "y": 600,
         "wires": []
     },
