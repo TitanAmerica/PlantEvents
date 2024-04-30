@@ -35,7 +35,7 @@
         "id": "60ccb6176681d4ee",
         "type": "OpcUa-Endpoint",
         "endpoint": "\\\\WINBOX1:Matrikon.OPC.Simulation.1",
-        "secpol": "Basic128",
+        "secpol": "None",
         "secmode": "None",
         "none": false,
         "login": true,
