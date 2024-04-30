@@ -77,10 +77,10 @@
         "id": "108a619e05f113be",
         "type": "OpcUa-Item",
         "z": "4c5d465447dabe08",
-        "item": "Kiln_Motor_Power",
+        "item": "PyroProcess.Kiln_Feed_Rate",
         "datatype": "Int64",
         "value": "",
-        "name": "Kiln_Motor_Power",
+        "name": "PyroProcess.Kiln_Feed_Rate",
         "x": 310,
         "y": 240,
         "wires": [
