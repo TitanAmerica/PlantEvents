@@ -293,36 +293,6 @@
         "className": ""
     },
     {
-        "id": "d162885f5409ab52",
-        "type": "OpcUa-Discovery",
-        "z": "a3fc98f005fbb17c",
-        "name": "Discover OPC Servers",
-        "x": 140,
-        "y": 80,
-        "wires": [
-            [
-                "d2caae920e78cda9"
-            ]
-        ]
-    },
-    {
-        "id": "d2caae920e78cda9",
-        "type": "debug",
-        "z": "a3fc98f005fbb17c",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 340,
-        "y": 80,
-        "wires": []
-    },
-    {
         "id": "db287430f437bd47",
         "type": "comment",
         "z": "4c5d465447dabe08",
