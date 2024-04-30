@@ -3,7 +3,6 @@
     "description": "A Node-RED Project",
     "version": "0.0.1",
     "dependencies": {
-        "node-red-contrib-opc-da": "1.0.4",
         "node-red-contrib-opcua": "0.2.323",
         "@flowfuse/node-red-dashboard": "1.8.1"
     },
