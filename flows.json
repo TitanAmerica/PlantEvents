@@ -2,15 +2,7 @@
     {
         "id": "fbc7fe71e9da92df",
         "type": "tab",
-        "label": "Raw Mill 1",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "6067a2d8141b6225",
-        "type": "tab",
-        "label": "Raw Mill 2",
+        "label": "Raw Mills",
         "disabled": false,
         "info": "",
         "env": []
@@ -26,17 +18,17 @@
     {
         "id": "486a780d98a6d614",
         "type": "tab",
-        "label": "Finish Mill 10",
+        "label": "Finish Mills",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
-        "id": "491911e96b64cd26",
+        "id": "9d49f9ea34db9390",
         "type": "tab",
-        "label": "Finish Mill 11",
+        "label": "Dashboard",
         "disabled": false,
-        "info": "",
+        "info": "Provide a dashboard that the plant operational staff can use to provide coding to events.",
         "env": []
     },
     {
@@ -304,8 +296,8 @@
         "interval": "10",
         "intervalUnits": "seconds",
         "name": "",
-        "x": 500,
-        "y": 360,
+        "x": 480,
+        "y": 420,
         "wires": [
             []
         ]
@@ -421,34 +413,6 @@
         "x": 640,
         "y": 140,
         "wires": [
-            []
-        ]
-    },
-    {
-        "id": "66dfc14b12961254",
-        "type": "OpcUa-Client",
-        "z": "491911e96b64cd26",
-        "endpoint": "",
-        "action": "read",
-        "deadbandtype": "a",
-        "deadbandvalue": 1,
-        "time": 10,
-        "timeUnit": "s",
-        "certificate": "n",
-        "localfile": "",
-        "localkeyfile": "",
-        "securitymode": "None",
-        "securitypolicy": "None",
-        "useTransport": false,
-        "maxChunkCount": 1,
-        "maxMessageSize": 8192,
-        "receiveBufferSize": 8192,
-        "sendBufferSize": 8192,
-        "name": "",
-        "x": 120,
-        "y": 100,
-        "wires": [
-            [],
             []
         ]
     }
