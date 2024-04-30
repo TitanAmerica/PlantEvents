@@ -132,7 +132,7 @@
         "id": "847899befdb7d549",
         "type": "inject",
         "z": "fbc7fe71e9da92df",
-        "name": "",
+        "name": "Specify Tag",
         "props": [
             {
                 "p": "payload"
@@ -142,14 +142,14 @@
                 "vt": "str"
             }
         ],
-        "repeat": "",
+        "repeat": "10",
         "crontab": "",
-        "once": false,
+        "once": true,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 120,
+        "x": 130,
         "y": 160,
         "wires": [
             [
